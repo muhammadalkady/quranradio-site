@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Radio</title>
+  <meta name="description" content="Quran Radio — listen to the Holy Quran online." />
+  <style>
+    :root {
+      --bg: #0f1410;
+      --fg: #e8e6d9;
+      --accent: #c8a24a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: 0.02em;
+      color: var(--accent);
+    }
+    .arabic {
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+    p { margin-top: 1rem; opacity: 0.75; max-width: 32ch; line-height: 1.6; }
+    footer { margin-top: 2.5rem; font-size: 0.85rem; opacity: 0.45; }
+  </style>
+</head>
+<body>
+  <div class="arabic">إِذَاعَة الْقُرْآن</div>
+  <h1>Quran Radio</h1>
+  <p>Listen to the Holy Quran online. Something beautiful is on the way.</p>
+  <footer>quranradio.app</footer>
+</body>
+</html>
