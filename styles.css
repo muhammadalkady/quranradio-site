@@ -3,12 +3,12 @@
    Theme tokens grounded in the app's Material 3 light & dark schemes.
    ============================================================ */
 
-/* App fonts, self-hosted. display:optional avoids the FOUT swap on display fonts. */
-@font-face { font-family: "Lobster";   src: url("fonts/lobster_regular.ttf") format("truetype");   font-weight: 400; font-display: optional; }
-@font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: optional; }
-@font-face { font-family: "Amiri";     src: url("fonts/amiri_regular.ttf") format("truetype");     font-weight: 400; font-display: swap; }
-@font-face { font-family: "Amiri";     src: url("fonts/amiri_bold.ttf") format("truetype");        font-weight: 700; font-display: swap; }
-@font-face { font-family: "Reem Kufi"; src: url("fonts/reem_kufi_regular.ttf") format("truetype"); font-weight: 400 600; font-display: swap; }
+/* App fonts, self-hosted as subset woff2 (ttf fallback). display:optional avoids the FOUT swap. */
+@font-face { font-family: "Lobster";   src: url("fonts/lobster_regular.woff2") format("woff2"),   url("fonts/lobster_regular.ttf") format("truetype");   font-weight: 400; font-display: optional; }
+@font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.woff2") format("woff2"), url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: optional; }
+@font-face { font-family: "Amiri";     src: url("fonts/amiri_regular.woff2") format("woff2"),     url("fonts/amiri_regular.ttf") format("truetype");     font-weight: 400; font-display: swap; }
+@font-face { font-family: "Amiri";     src: url("fonts/amiri_bold.woff2") format("woff2"),        url("fonts/amiri_bold.ttf") format("truetype");        font-weight: 700; font-display: swap; }
+@font-face { font-family: "Reem Kufi"; src: url("fonts/reem_kufi_regular.woff2") format("woff2"), url("fonts/reem_kufi_regular.ttf") format("truetype"); font-weight: 400 600; font-display: swap; }
 
 /* ---------- Theme tokens: LIGHT is the default ---------- */
 :root {
@@ -22,6 +22,9 @@
   --line: rgba(23, 37, 28, 0.12);
   --nav-bg: rgba(234, 243, 236, 0.72);
   --glow: rgba(127, 224, 60, 0.10);
+  --girih-opacity: 0.07;
+  --bezel: #0c1310;        /* device frame */
+  --screen: #0a100d;       /* device screen */
 
   --brand: #7FE03C;         /* constant — the logo lime */
   --on-brand: #0E1512;      /* text on lime buttons */
@@ -55,6 +58,9 @@
     --line: rgba(168, 201, 178, 0.14);
     --nav-bg: rgba(14, 21, 18, 0.72);
     --glow: rgba(127, 224, 60, 0.16);
+    --girih-opacity: 0.06;
+    --bezel: #050806;
+    --screen: #040605;
     color-scheme: dark;
   }
 }
@@ -88,6 +94,17 @@ body {
 a { color: inherit; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
 .accent { color: var(--accent-text); }
+h1, h2 { text-wrap: balance; }
+
+/* Accessibility: visible focus + skip link */
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 100;
+  background: var(--brand); color: var(--on-brand); font-weight: 600;
+  padding: 0.6rem 1rem; border-radius: 0 0 12px 12px; text-decoration: none;
+  transition: top .18s ease;
+}
+.skip-link:focus { top: 0; }
 
 /* ---------- Nav ---------- */
 .nav {
@@ -134,13 +151,32 @@ a { color: inherit; }
 .play-badge img { height: 58px; width: auto; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; text-align: center; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem); overflow: hidden; }
+.hero { position: relative; text-align: center; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem); overflow: hidden; isolation: isolate; }
+/* God-rays: soft radial glow + faint drifting light beams from the top centre */
 .hero::before {
-  content: ""; position: absolute; inset: -20% 0 auto 0; height: 80%;
-  background: radial-gradient(60% 60% at 50% 0%, var(--glow), transparent 70%);
+  content: ""; position: absolute; inset: -30% -10% auto -10%; height: 110%; z-index: -2;
+  background:
+    radial-gradient(58% 52% at 50% 0%, var(--glow), transparent 72%),
+    repeating-conic-gradient(from 90deg at 50% -6%,
+      color-mix(in srgb, var(--brand) 7%, transparent) 0deg 3deg,
+      transparent 3deg 13deg);
+  -webkit-mask-image: radial-gradient(70% 75% at 50% 0%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(70% 75% at 50% 0%, #000 0%, transparent 78%);
+  pointer-events: none; transform-origin: 50% 0%;
+  animation: rays-drift 24s ease-in-out infinite alternate;
+}
+/* Girih: faint Islamic strapwork texture, edge-faded */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: url("assets/girih.svg"); background-size: 132px 132px;
+  opacity: var(--girih-opacity, 0.05);
+  -webkit-mask-image: radial-gradient(95% 70% at 50% 0%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(95% 70% at 50% 0%, #000 0%, transparent 72%);
   pointer-events: none;
 }
-.hero .arabic { position: relative; font-family: var(--font-ar-display); color: var(--primary);
+@keyframes rays-drift { from { transform: rotate(-5deg) scale(1.05); } to { transform: rotate(5deg) scale(1.05); } }
+@keyframes float-soft { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+.hero .arabic { position: relative; z-index: 1; font-family: var(--font-ar-display); color: var(--primary);
   font-size: clamp(1.4rem, 4.5vw, 2.1rem); opacity: 0.92; margin-bottom: 0.75rem; }
 .hero h1 {
   position: relative; font-family: var(--font-display); font-weight: 400;
@@ -154,35 +190,61 @@ a { color: inherit; }
 .hero .cta-row { position: relative; display: flex; justify-content: center; }
 
 /* ---------- Frames / placeholders ---------- */
-.frame {
-  position: relative; border-radius: 22px; overflow: hidden;
+/* Device frames. The bezel is the element; the "screen" is a ::before inset that a real
+   <img class="frame__shot"> can later fill (position:absolute; inset matches the screen). */
+.frame { position: relative; display: flex; align-items: center; justify-content: center; }
+.frame::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 0;
   background:
-    radial-gradient(120% 120% at 50% 0%, rgba(168,201,178,0.06), transparent 60%),
+    radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 60%),
     linear-gradient(180deg, var(--surface), var(--surface-2));
-  border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 30px 70px -40px rgba(0,0,0,0.55);
 }
-.frame__wm { width: 34%; max-width: 120px; opacity: 0.12; color: var(--accent-text); }
+.frame__wm { position: relative; z-index: 1; width: 30%; max-width: 110px; opacity: 0.14; color: var(--accent-text); }
 .frame__wm svg { width: 100%; height: 100%; display: block; }
 .frame__label {
-  position: absolute; bottom: 14px; left: 0; right: 0; text-align: center;
-  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); opacity: 0.8;
+  position: absolute; z-index: 1; bottom: 16px; left: 0; right: 0; text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); opacity: 0.75;
 }
-.frame--video { aspect-ratio: 16 / 9; width: 100%; border-radius: 26px; }
+.frame__shot { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+
+/* Preview card (hero video) */
+.frame--video {
+  aspect-ratio: 16 / 9; width: 100%; border-radius: 24px; overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 90px -50px rgba(0,0,0,0.7);
+}
 .frame--video .play-glyph {
-  position: absolute; width: 74px; height: 74px; border-radius: 50%;
+  position: relative; z-index: 1; width: 78px; height: 78px; border-radius: 50%;
   background: color-mix(in srgb, var(--accent-text) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent-text) 45%, transparent);
-  display: flex; align-items: center; justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--accent-text) 50%, transparent);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent-text) 6%, transparent);
+  display: flex; align-items: center; justify-content: center; transition: transform .2s ease;
 }
+.frame--video:hover .play-glyph { transform: scale(1.06); }
 .frame--video .play-glyph::after {
   content: ""; border-style: solid; border-width: 13px 0 13px 22px;
   border-color: transparent transparent transparent var(--accent-text); margin-left: 5px;
 }
-.frame--phone { aspect-ratio: 9 / 19.5; border-radius: 30px; padding: 0; }
-.frame--tablet { aspect-ratio: 4 / 3; width: 100%; border-radius: 26px; }
-.hero-media { position: relative; margin: clamp(2rem,5vw,3.5rem) auto 0; max-width: 880px; padding: 0 1.5rem; }
+
+/* Phone: thick bezel + rounded screen + speaker notch */
+.frame--phone {
+  aspect-ratio: 9 / 19.5; border-radius: 34px; background: var(--bezel); padding: 10px;
+  box-shadow: 0 36px 80px -40px rgba(0,0,0,0.75), inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+.frame--phone::before { inset: 10px; border-radius: 26px; }
+.frame--phone::after {
+  content: ""; position: absolute; z-index: 2; top: 22px; left: 50%; transform: translateX(-50%);
+  width: 30%; height: 7px; border-radius: 999px; background: rgba(255,255,255,0.14);
+}
+
+/* Tablet: slimmer bezel */
+.frame--tablet {
+  aspect-ratio: 4 / 3; width: 100%; border-radius: 24px; background: var(--bezel); padding: 14px;
+  box-shadow: 0 36px 90px -46px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+.frame--tablet::before { inset: 14px; border-radius: 12px; }
+
+.hero-media { position: relative; margin: clamp(2rem,5vw,3.5rem) auto 0; max-width: 880px; padding: 0 1.5rem; will-change: transform; }
 
 /* ---------- Phone marquee ---------- */
 .marquee { padding: clamp(2rem, 5vw, 3.5rem) 0; }
@@ -237,7 +299,8 @@ a { color: inherit; }
 /* ---------- Download CTA ---------- */
 .download { text-align: center; background: var(--surface-2); border-top: 1px solid var(--line); }
 .download .ico-lg { width: clamp(96px,20vw,128px); height: clamp(96px,20vw,128px); border-radius: 50%; background: #000; color: var(--brand);
-  margin: 0 auto 1.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+  margin: 0 auto 1.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  animation: float-soft 4.5s ease-in-out infinite alternate; }
 .download .ico-lg svg { width: 58%; height: 58%; }
 .download h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.01em; }
 .download p { color: var(--muted); margin: 1rem auto 2rem; max-width: 40ch; font-size: clamp(1rem,2vw,1.2rem); }
@@ -289,4 +352,6 @@ footer.site .links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: c
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal, .reveal { opacity: 1; transform: none; transition: none; }
+  .hero::before, .download .ico-lg { animation: none !important; }
+  .hero-media { transform: none !important; }
 }

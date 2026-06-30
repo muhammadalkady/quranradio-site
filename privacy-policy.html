@@ -6,6 +6,15 @@
   <title>Privacy Policy — Quran Radio</title>
   <meta name="description" content="Privacy Policy for the Quran Radio app. Quran Radio does not collect, store, or share any personal data — no accounts, no analytics, no ads." />
   <meta name="theme-color" content="#EAF3EC" />
+  <meta name="author" content="Muhammad Alkady" />
+  <meta name="application-name" content="Quran Radio" />
+  <link rel="canonical" href="https://quranradio.app/privacy-policy.html" />
+
+  <!-- Icons & manifest -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Apply the saved theme before paint (no flash) -->
   <script>
@@ -23,13 +32,14 @@
   </script>
 
   <!-- Preload above-the-fold display fonts so headings paint in the right font (no swap flash) -->
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/marcellus_regular.ttf" />
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/lobster_regular.ttf" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/marcellus_regular.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/lobster_regular.woff2" />
 
   <link rel="stylesheet" href="styles.css" />
   <script defer src="assets/theme.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <!-- Reusable Qaf (ق) glyph; fill:currentColor so each placement sets its own color -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="qaf" viewBox="0 0 1024 1024">
@@ -56,7 +66,7 @@
     </div>
   </header>
 
-  <main class="policy">
+  <main class="policy" id="main">
     <nav class="lang-switch">
       <a href="#en">English</a> · <a href="#ar">العربية</a>
     </nav>
