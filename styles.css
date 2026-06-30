@@ -203,7 +203,7 @@ h1, h2 { text-wrap: balance; }
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 32px rgba(127, 224, 60, 0.18);
 }
-.hero__logo svg { width: 60%; height: 60%; overflow: visible; }
+.hero__logo svg { width: 74%; height: 74%; overflow: visible; }
 /* Soft lime glow halo around the disc — ramps in, then pulses forever */
 .hero__logo::after {
   content: ""; position: absolute; inset: -24%; border-radius: 50%; z-index: -1;
