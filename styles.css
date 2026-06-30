@@ -194,6 +194,45 @@ h1, h2 { text-wrap: balance; }
 }
 @keyframes rays-drift { from { transform: rotate(-5deg) scale(1.05); } to { transform: rotate(5deg) scale(1.05); } }
 @keyframes float-soft { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+
+/* Animated hero logo: app-splash "draw-on" trace + fill, then a glow that breathes forever */
+.hero__logo {
+  position: relative; z-index: 1;
+  width: clamp(104px, 17vw, 148px); aspect-ratio: 1; border-radius: 50%;
+  background: #000; margin: 0 auto clamp(1.1rem, 3vw, 1.6rem);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 32px rgba(127, 224, 60, 0.18);
+}
+.hero__logo svg { width: 60%; height: 60%; overflow: visible; }
+/* Soft lime glow halo around the disc — ramps in, then pulses forever */
+.hero__logo::after {
+  content: ""; position: absolute; inset: -24%; border-radius: 50%; z-index: -1;
+  background: radial-gradient(closest-side, rgba(127, 224, 60, 0.55), rgba(127, 224, 60, 0) 72%);
+  filter: blur(6px); opacity: 0;
+  animation: ql-glow-in 0.2s ease-out 0.45s forwards,
+             ql-glow-pulse 1.1s ease-in-out 0.65s infinite alternate;
+}
+.hero__logo .ql-trace {
+  fill: none; stroke: var(--brand); stroke-width: 15;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+}
+.hero__logo .ql-body   { animation: ql-trace 0.4s cubic-bezier(.4,0,.2,1) forwards,
+                                    ql-trace-fade 0.12s linear 0.38s forwards; }
+.hero__logo .ql-shadda { animation: ql-trace 0.32s cubic-bezier(.4,0,.2,1) 0.06s forwards,
+                                    ql-trace-fade 0.12s linear 0.38s forwards; }
+.hero__logo .ql-fill { color: var(--brand); opacity: 0; animation: ql-fill 0.25s cubic-bezier(.4,0,.2,1) 0.25s forwards; }
+@keyframes ql-trace      { to { stroke-dashoffset: 0; } }
+@keyframes ql-trace-fade { to { stroke-opacity: 0; } }
+@keyframes ql-fill       { to { opacity: 1; } }
+@keyframes ql-glow-in    { to { opacity: 0.55; } }
+@keyframes ql-glow-pulse { from { opacity: 0.55; } to { opacity: 0.18; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__logo .ql-trace { display: none; }
+  .hero__logo .ql-fill { opacity: 1; animation: none; }
+  .hero__logo::after { opacity: 0.4; animation: none; }
+}
+
 .hero .arabic { position: relative; z-index: 1; font-family: var(--font-ar-display); color: var(--primary);
   font-size: clamp(1.4rem, 4.5vw, 2.1rem); opacity: 0.92; margin-bottom: 0.75rem; }
 .hero h1 {
