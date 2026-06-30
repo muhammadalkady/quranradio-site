@@ -6,6 +6,15 @@
   <title>Quran Radio — Listen to the Holy Quran</title>
   <meta name="description" content="Quran Radio — live Quran recitation radio and your favorite reciters, anytime. Verse-synced highlighting, offline downloads, playlists and more. No ads, no tracking." />
   <meta name="theme-color" content="#EAF3EC" />
+  <meta name="author" content="Muhammad Alkady" />
+  <meta name="application-name" content="Quran Radio" />
+  <link rel="canonical" href="https://quranradio.app/" />
+
+  <!-- Icons & manifest -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Quran Radio" />
@@ -29,13 +38,32 @@
   </script>
 
   <!-- Preload above-the-fold display fonts so headings paint in the right font (no swap flash) -->
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/marcellus_regular.ttf" />
-  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/lobster_regular.ttf" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/marcellus_regular.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/lobster_regular.woff2" />
 
   <link rel="stylesheet" href="styles.css" />
   <script defer src="assets/theme.js"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Quran Radio",
+    "operatingSystem": "Android",
+    "applicationCategory": "MultimediaApplication",
+    "description": "Live Quran recitation radio and your favorite reciters, anytime. Verse-synced highlighting, offline downloads, playlists and more. No ads, no tracking.",
+    "url": "https://quranradio.app/",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.kady.muhammad.quran_radio",
+    "image": "https://quranradio.app/icon-512.png",
+    "inLanguage": ["en", "ar"],
+    "author": { "@type": "Person", "name": "Muhammad Alkady" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <!-- Reusable Qaf (ق) glyph; fill:currentColor so each placement sets its own color -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="qaf" viewBox="0 0 1024 1024">
@@ -62,7 +90,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ===================== Hero ===================== -->
     <section class="hero">
       <div class="wrap">
@@ -250,6 +278,22 @@
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
       els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Subtle hero parallax (disabled under reduced motion).
+    (function () {
+      if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var media = document.querySelector('.hero-media');
+      if (!media) return;
+      var ticking = false;
+      function update() {
+        var y = window.scrollY || 0;
+        media.style.transform = 'translateY(' + Math.min(y * 0.06, 40) + 'px)';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
     })();
   </script>
 </body>
