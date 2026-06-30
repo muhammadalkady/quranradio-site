@@ -6,10 +6,13 @@
   <title>Privacy Policy — Quran Radio</title>
   <meta name="description" content="Privacy Policy for the Quran Radio app. Quran Radio does not collect, store, or share any personal data — no accounts, no analytics, no ads." />
   <meta name="theme-color" content="#1A2520" />
+  <!-- Preload above-the-fold display fonts so headings paint in the right font (no swap flash) -->
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/marcellus_regular.ttf" />
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/lobster_regular.ttf" />
   <style>
-    /* App fonts, self-hosted from the app's own font files */
-    @font-face { font-family: "Lobster"; src: url("fonts/lobster_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-    @font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+    /* App fonts, self-hosted from the app's own font files. display:optional avoids the FOUT swap. */
+    @font-face { font-family: "Lobster"; src: url("fonts/lobster_regular.ttf") format("truetype"); font-weight: 400; font-display: optional; }
+    @font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: optional; }
     @font-face { font-family: "Amiri"; src: url("fonts/amiri_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
     @font-face { font-family: "Amiri"; src: url("fonts/amiri_bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
     @font-face { font-family: "Reem Kufi"; src: url("fonts/reem_kufi_regular.ttf") format("truetype"); font-weight: 400 600; font-display: swap; }

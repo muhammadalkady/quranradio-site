@@ -3,89 +3,435 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quran Radio</title>
-  <meta name="description" content="Quran Radio — listen to the Holy Quran online." />
-  <meta name="theme-color" content="#1A2520" />
+  <title>Quran Radio — Listen to the Holy Quran</title>
+  <meta name="description" content="Quran Radio — live Quran recitation radio and your favorite reciters, anytime. Verse-synced highlighting, offline downloads, playlists and more. No ads, no tracking." />
+  <meta name="theme-color" content="#0E1512" />
+  <script>document.documentElement.classList.add('js')</script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Quran Radio" />
+  <meta property="og:description" content="Live Quran recitation radio and your favorite reciters, anytime. No ads, no tracking." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://quranradio.app/" />
+
+  <!-- Preload above-the-fold display fonts so headings paint in the right font (no swap flash) -->
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/marcellus_regular.ttf" />
+  <link rel="preload" as="font" type="font/ttf" crossorigin href="fonts/lobster_regular.ttf" />
+
   <style>
-    /* App fonts, self-hosted from the app's own font files */
-    @font-face { font-family: "Lobster"; src: url("fonts/lobster_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-    @font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-    @font-face { font-family: "Amiri"; src: url("fonts/amiri_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-    @font-face { font-family: "Amiri"; src: url("fonts/amiri_bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+    /* App fonts, self-hosted. display:optional avoids the flash-of-unstyled-text swap. */
+    @font-face { font-family: "Lobster";   src: url("fonts/lobster_regular.ttf") format("truetype");   font-weight: 400; font-display: optional; }
+    @font-face { font-family: "Marcellus"; src: url("fonts/marcellus_regular.ttf") format("truetype"); font-weight: 400; font-display: optional; }
+    /* Arabic accent fonts are below the fold — swap is fine here. */
+    @font-face { font-family: "Amiri";     src: url("fonts/amiri_regular.ttf") format("truetype");     font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Amiri";     src: url("fonts/amiri_bold.ttf") format("truetype");        font-weight: 700; font-display: swap; }
     @font-face { font-family: "Reem Kufi"; src: url("fonts/reem_kufi_regular.ttf") format("truetype"); font-weight: 400 600; font-display: swap; }
+
     :root {
-      /* Colors taken from the app's dark theme */
-      --bg: #1A2520;          /* backgroundDark / surfaceDark */
-      --fg: #D7E8DC;          /* onBackgroundDark */
-      --primary: #A8C9B2;     /* primaryDark (sage) */
-      --accent: #7FE03C;      /* Quran green — brand / logo */
-      /* Fonts matching the app */
-      --font-display: "Lobster", cursive;
-      --font-en: "Marcellus", Georgia, serif;
+      --bg: #0E1512;            /* near-black base */
+      --surface: #1A2520;       /* app surfaceDark */
+      --surface-2: #14201B;
+      --fg: #E7F1EA;            /* light text */
+      --muted: #9DB3A6;         /* muted sage text */
+      --primary: #A8C9B2;       /* app primaryDark */
+      --accent: #7FE03C;        /* Quran green — brand */
+      --line: rgba(168, 201, 178, 0.14);
+      --font-display: "Marcellus", Georgia, serif;
+      --font-wordmark: "Lobster", cursive;
       --font-ar: "Amiri", serif;
       --font-ar-display: "Reem Kufi", sans-serif;
+      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --maxw: 1120px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-en);
+      font-family: var(--font-body);
       background: var(--bg);
       color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 1.5rem;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .app-icon {
-      width: clamp(120px, 28vw, 168px);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    a { color: inherit; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+    .accent { color: var(--accent); }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+      background: rgba(14, 21, 18, 0.72);
+      border-bottom: 1px solid var(--line);
     }
-    .app-icon svg { width: 58%; height: 58%; }
-    .play-badge { display: inline-block; margin-top: 1.75rem; line-height: 0; }
-    .play-badge img { height: 56px; width: auto; }
-    .arabic {
-      font-family: var(--font-ar-display);
-      font-size: clamp(1.5rem, 5vw, 2.4rem);
-      margin-bottom: 0.35rem;
-      color: var(--primary);
+    .nav__inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 0.7rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    h1 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.4rem, 7vw, 4rem);
-      letter-spacing: 0.01em;
-      color: var(--accent);
+    .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .brand .ico { width: 34px; height: 34px; border-radius: 50%; background: #000;
+      display: flex; align-items: center; justify-content: center; flex: none; }
+    .brand .ico svg { width: 58%; height: 58%; }
+    .brand .name { font-family: var(--font-wordmark); font-size: 1.25rem; color: var(--accent); line-height: 1; }
+    .nav__cta {
+      text-decoration: none; font-size: 0.92rem; font-weight: 600;
+      color: #0E1512; background: var(--accent);
+      padding: 0.5rem 1.05rem; border-radius: 999px;
+      transition: transform .15s ease, filter .15s ease;
     }
-    p { margin-top: 1rem; opacity: 0.8; max-width: 34ch; line-height: 1.6; }
-    footer { margin-top: 2.5rem; font-size: 0.85rem; opacity: 0.5; }
-    footer a { color: var(--primary); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .nav__cta:hover { filter: brightness(1.07); transform: translateY(-1px); }
+
+    /* ---------- Buttons / badge ---------- */
+    .play-badge { display: inline-block; line-height: 0; transition: transform .15s ease; }
+    .play-badge:hover { transform: translateY(-2px); }
+    .play-badge img { height: 58px; width: auto; }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; text-align: center; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem); overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: -20% 0 auto 0; height: 80%;
+      background: radial-gradient(60% 60% at 50% 0%, rgba(127, 224, 60, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+    .hero .arabic { position: relative; font-family: var(--font-ar-display); color: var(--primary);
+      font-size: clamp(1.4rem, 4.5vw, 2.1rem); opacity: 0.92; margin-bottom: 0.75rem; }
+    .hero h1 {
+      position: relative; font-family: var(--font-display); font-weight: 400;
+      font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.04; letter-spacing: -0.01em;
+      max-width: 16ch; margin: 0 auto;
+    }
+    .hero .lede {
+      position: relative; color: var(--muted); font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+      max-width: 40ch; margin: 1.25rem auto 2rem; line-height: 1.55;
+    }
+    .hero .cta-row { position: relative; display: flex; justify-content: center; }
+
+    /* ---------- Frames / placeholders ---------- */
+    .frame {
+      position: relative; border-radius: 22px; overflow: hidden;
+      background:
+        radial-gradient(120% 120% at 50% 0%, rgba(168,201,178,0.06), transparent 60%),
+        linear-gradient(180deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 30px 70px -40px rgba(0,0,0,0.8);
+    }
+    .frame__wm { width: 34%; max-width: 120px; opacity: 0.10; }
+    .frame__wm svg { width: 100%; height: 100%; display: block; }
+    .frame__label {
+      position: absolute; bottom: 14px; left: 0; right: 0; text-align: center;
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); opacity: 0.7;
+    }
+    .frame--video { aspect-ratio: 16 / 9; width: 100%; border-radius: 26px; }
+    .frame--video .play-glyph {
+      position: absolute; width: 74px; height: 74px; border-radius: 50%;
+      background: rgba(127,224,60,0.14); border: 1px solid rgba(127,224,60,0.4);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .frame--video .play-glyph::after {
+      content: ""; border-style: solid; border-width: 13px 0 13px 22px;
+      border-color: transparent transparent transparent var(--accent); margin-left: 5px;
+    }
+    .frame--phone { aspect-ratio: 9 / 19.5; border-radius: 30px; padding: 0; }
+    .frame--tablet { aspect-ratio: 4 / 3; width: 100%; border-radius: 26px; }
+    .hero-media { position: relative; margin: clamp(2rem,5vw,3.5rem) auto 0; max-width: 880px; padding: 0 1.5rem; }
+
+    /* ---------- Phone marquee ---------- */
+    .marquee { padding: clamp(2rem, 5vw, 3.5rem) 0; }
+    .marquee__track {
+      display: flex; gap: 1.1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 0.5rem 1.5rem 1.25rem; -webkit-overflow-scrolling: touch;
+    }
+    .marquee__track::-webkit-scrollbar { height: 6px; }
+    .marquee__track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+    .marquee .frame--phone { flex: 0 0 auto; width: clamp(180px, 42vw, 232px); scroll-snap-align: center; }
+
+    /* ---------- Feature rows ---------- */
+    .section { padding: clamp(3rem, 8vw, 6rem) 0; }
+    .section--alt { background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.9rem; }
+    .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+    .feature + .feature { margin-top: clamp(3rem, 8vw, 6rem); }
+    .feature.reverse .feature__media { order: -1; }
+    .feature__text h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.9rem); line-height: 1.1; letter-spacing: -0.01em; }
+    .feature__text p { color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); margin-top: 1rem; max-width: 42ch; }
+    .feature__media .frame--phone { width: min(280px, 70%); margin: 0 auto; }
+
+    /* ---------- Tablet showcase ---------- */
+    .showcase { text-align: center; }
+    .showcase h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -0.01em; }
+    .showcase p { color: var(--muted); max-width: 46ch; margin: 1rem auto 2.5rem; font-size: clamp(1rem, 2vw, 1.2rem); }
+    .showcase .frame--tablet { max-width: 920px; margin: 0 auto; }
+
+    /* ---------- Feature grid ---------- */
+    .grid-head { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+    .grid-head h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -0.01em; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .tile {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.6rem 1.5rem; transition: transform .18s ease, border-color .18s ease;
+    }
+    .tile:hover { transform: translateY(-4px); border-color: rgba(127,224,60,0.35); }
+    .tile .ti { width: 40px; height: 40px; color: var(--accent); margin-bottom: 1rem; }
+    .tile .ti svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.7; }
+    .tile h3 { font-size: 1.12rem; font-weight: 600; }
+    .tile p { color: var(--muted); font-size: 0.96rem; margin-top: 0.4rem; }
+
+    /* ---------- Privacy callout ---------- */
+    .privacy { text-align: center; }
+    .privacy .badge-pill { display: inline-block; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(127,224,60,0.4); border-radius: 999px; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
+    .privacy h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 5vw, 3.2rem); letter-spacing: -0.01em; max-width: 18ch; margin: 0 auto; }
+    .privacy p { color: var(--muted); max-width: 44ch; margin: 1.1rem auto 1.6rem; font-size: clamp(1rem, 2vw, 1.2rem); }
+    .privacy a.text-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(127,224,60,0.4); padding-bottom: 2px; }
+    .privacy a.text-link:hover { border-color: var(--accent); }
+
+    /* ---------- Download CTA ---------- */
+    .download { text-align: center; background: var(--surface-2); border-top: 1px solid var(--line); }
+    .download .ico-lg { width: clamp(96px,20vw,128px); height: clamp(96px,20vw,128px); border-radius: 50%; background: #000; margin: 0 auto 1.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+    .download .ico-lg svg { width: 58%; height: 58%; }
+    .download h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.01em; }
+    .download p { color: var(--muted); margin: 1rem auto 2rem; max-width: 40ch; font-size: clamp(1rem,2vw,1.2rem); }
+
+    /* ---------- Footer ---------- */
+    footer.site { border-top: 1px solid var(--line); padding: 2.5rem 0; color: var(--muted); font-size: 0.9rem; }
+    footer.site .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; justify-content: space-between; }
+    footer.site a { color: var(--muted); text-decoration: none; }
+    footer.site a:hover { color: var(--fg); }
+    footer.site .links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    /* ---------- Scroll reveal (only hidden when JS is active, so no-JS still shows everything) ---------- */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 760px) {
+      .feature { grid-template-columns: 1fr; gap: 2rem; }
+      .feature.reverse .feature__media { order: 0; }
+      .feature__text p { max-width: none; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .nav__cta { display: none; }
+    }
+    @media (max-width: 460px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal, .reveal { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
-  <!-- App icon: the Arabic letter Qaf (ق) on black, mirroring the launcher icon -->
-  <div class="app-icon">
-  <svg viewBox="0 0 1024 1024" role="img" aria-label="Quran Radio logo" xmlns="http://www.w3.org/2000/svg">
-    <path fill="var(--accent)" d="M554.3,474.7c0,-6.4 1.6,-15 4.8,-25.7 3.2,-10.7 7.6,-25.3 13.2,-43.7 3,-10.3 7.5,-17.6 13.5,-21.9 6,-4.5 12.4,-6.8 19.3,-6.8 6.4,0 12.9,1.9 19.3,5.8 6.6,3.6 11.6,9 14.8,16.1 6.4,14.6 11,29.8 13.8,45.7 3,15.9 4.5,31.8 4.5,47.9 0,22.3 -2.4,44.9 -7.1,67.9 -4.5,22.7 -11.2,44.7 -19.9,65.9 -8.6,21 -19.1,40.9 -31.5,59.5 -12.4,18.4 -26.5,34.4 -42.1,47.9 -15.4,13.7 -32.4,24.6 -50.8,32.5 -18.4,7.9 -38,11.9 -58.5,11.9 -18.4,0 -34.4,-3.5 -47.9,-10.6 -13.5,-7.1 -24.8,-16.4 -33.8,-28 -9,-11.6 -15.8,-24.9 -20.3,-39.9 -4.3,-15 -6.4,-30.5 -6.4,-46.3 0,-11.8 0.6,-23.3 1.9,-34.4 1.5,-11.4 3.5,-22.6 6.1,-33.8 2.8,-11.2 6.2,-22.4 10.3,-33.8 4.3,-11.6 9.2,-23.6 14.8,-36 1.9,-4.3 4,-8.4 6.1,-12.2 2.4,-3.9 4.6,-7.2 6.8,-10 2.1,-3 4.1,-5.4 5.8,-7.1 1.9,-1.7 3.5,-2.6 4.8,-2.6 1.5,0 2.3,1.4 2.3,4.2 0,2.4 -0.8,6.1 -2.3,11.3 -1.3,5.1 -3.6,11.8 -7.1,19.9 -5.8,14.8 -10.6,29.6 -14.5,44.4 -3.9,14.8 -5.8,29.9 -5.8,45.4 0,13.3 2,25.5 6.1,36.7 4.3,10.9 10.3,20.4 18,28.3 7.7,7.9 17.2,14 28.3,18.3 11.2,4.5 23.7,6.8 37.6,6.8 23.4,0 45.4,-4.2 65.9,-12.5 20.8,-8.6 38.9,-20.2 54.4,-34.7 15.4,-14.8 27.6,-32.1 36.4,-51.8 9,-19.9 13.5,-41.4 13.5,-64.3 0,-7.5 -0.5,-14.3 -1.6,-20.3 -1.1,-6.2 -2.8,-10.8 -5.1,-13.8 -3.6,3 -7.8,5.5 -12.5,7.4 -4.7,1.9 -9.5,2.9 -14.5,2.9 -4.9,0 -9.9,-0.9 -14.8,-2.6 -4.7,-1.7 -9,-4.2 -12.9,-7.4 -3.9,-3.2 -7,-7 -9.3,-11.3 -2.4,-4.5 -3.5,-9.5 -3.5,-15.1z" />
-    <path fill="var(--accent)" d="M511.8,310.3c6.4,-8.1 13.2,-16.5 20.3,-25.1 7.3,-8.6 13.7,-16.2 19.3,-22.8 1.1,-1.1 1.9,-1.6 2.6,-1.6 0.9,0 2.4,0.8 4.5,2.3 5.6,3.9 11.9,8.6 19,14.2 7.3,5.4 14,10.4 20.3,15.1 6.2,-7.5 12.5,-15.2 19,-23.2 6.4,-7.9 12.3,-15 17.7,-21.2 1.1,-1.1 1.9,-1.6 2.6,-1.6 0.9,0 2.4,0.8 4.5,2.3 5.6,3.9 11.9,8.5 19,13.8 7.3,5.1 14,10.1 20.3,14.8 1.1,1.1 2,1.9 2.9,2.6 0.9,0.6 1.3,1.4 1.3,2.3 0,0.6 -0.6,1.8 -1.9,3.5l-38.9,47c-0.4,0.6 -1.1,1.4 -1.9,2.3 -0.6,0.6 -1.2,1 -1.6,1 -0.9,0 -2.1,-0.5 -3.9,-1.6 -6,-4.1 -12.7,-8.8 -19.9,-14.2 -7.1,-5.6 -13.7,-11.2 -19.9,-16.7l-36.4,43.7c-0.4,0.6 -1.1,1.4 -1.9,2.3 -0.6,0.6 -1.2,1 -1.6,1 -0.9,0 -2.1,-0.5 -3.9,-1.6 -6,-4.1 -12.7,-8.9 -19.9,-14.5 -7.1,-5.8 -13.7,-11.5 -19.9,-17 -2.1,-1.7 -3.2,-3 -3.2,-3.9 0,-0.4 0.2,-0.9 0.6,-1.3 0.4,-0.6 0.9,-1.2 1.3,-1.6z" />
+  <!-- Reusable Qaf (ق) glyph, from the app's vector asset -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="qaf" viewBox="0 0 1024 1024">
+      <path fill="var(--accent)" d="M554.3,474.7c0,-6.4 1.6,-15 4.8,-25.7 3.2,-10.7 7.6,-25.3 13.2,-43.7 3,-10.3 7.5,-17.6 13.5,-21.9 6,-4.5 12.4,-6.8 19.3,-6.8 6.4,0 12.9,1.9 19.3,5.8 6.6,3.6 11.6,9 14.8,16.1 6.4,14.6 11,29.8 13.8,45.7 3,15.9 4.5,31.8 4.5,47.9 0,22.3 -2.4,44.9 -7.1,67.9 -4.5,22.7 -11.2,44.7 -19.9,65.9 -8.6,21 -19.1,40.9 -31.5,59.5 -12.4,18.4 -26.5,34.4 -42.1,47.9 -15.4,13.7 -32.4,24.6 -50.8,32.5 -18.4,7.9 -38,11.9 -58.5,11.9 -18.4,0 -34.4,-3.5 -47.9,-10.6 -13.5,-7.1 -24.8,-16.4 -33.8,-28 -9,-11.6 -15.8,-24.9 -20.3,-39.9 -4.3,-15 -6.4,-30.5 -6.4,-46.3 0,-11.8 0.6,-23.3 1.9,-34.4 1.5,-11.4 3.5,-22.6 6.1,-33.8 2.8,-11.2 6.2,-22.4 10.3,-33.8 4.3,-11.6 9.2,-23.6 14.8,-36 1.9,-4.3 4,-8.4 6.1,-12.2 2.4,-3.9 4.6,-7.2 6.8,-10 2.1,-3 4.1,-5.4 5.8,-7.1 1.9,-1.7 3.5,-2.6 4.8,-2.6 1.5,0 2.3,1.4 2.3,4.2 0,2.4 -0.8,6.1 -2.3,11.3 -1.3,5.1 -3.6,11.8 -7.1,19.9 -5.8,14.8 -10.6,29.6 -14.5,44.4 -3.9,14.8 -5.8,29.9 -5.8,45.4 0,13.3 2,25.5 6.1,36.7 4.3,10.9 10.3,20.4 18,28.3 7.7,7.9 17.2,14 28.3,18.3 11.2,4.5 23.7,6.8 37.6,6.8 23.4,0 45.4,-4.2 65.9,-12.5 20.8,-8.6 38.9,-20.2 54.4,-34.7 15.4,-14.8 27.6,-32.1 36.4,-51.8 9,-19.9 13.5,-41.4 13.5,-64.3 0,-7.5 -0.5,-14.3 -1.6,-20.3 -1.1,-6.2 -2.8,-10.8 -5.1,-13.8 -3.6,3 -7.8,5.5 -12.5,7.4 -4.7,1.9 -9.5,2.9 -14.5,2.9 -4.9,0 -9.9,-0.9 -14.8,-2.6 -4.7,-1.7 -9,-4.2 -12.9,-7.4 -3.9,-3.2 -7,-7 -9.3,-11.3 -2.4,-4.5 -3.5,-9.5 -3.5,-15.1z" />
+      <path fill="var(--accent)" d="M511.8,310.3c6.4,-8.1 13.2,-16.5 20.3,-25.1 7.3,-8.6 13.7,-16.2 19.3,-22.8 1.1,-1.1 1.9,-1.6 2.6,-1.6 0.9,0 2.4,0.8 4.5,2.3 5.6,3.9 11.9,8.6 19,14.2 7.3,5.4 14,10.4 20.3,15.1 6.2,-7.5 12.5,-15.2 19,-23.2 6.4,-7.9 12.3,-15 17.7,-21.2 1.1,-1.1 1.9,-1.6 2.6,-1.6 0.9,0 2.4,0.8 4.5,2.3 5.6,3.9 11.9,8.5 19,13.8 7.3,5.1 14,10.1 20.3,14.8 1.1,1.1 2,1.9 2.9,2.6 0.9,0.6 1.3,1.4 1.3,2.3 0,0.6 -0.6,1.8 -1.9,3.5l-38.9,47c-0.4,0.6 -1.1,1.4 -1.9,2.3 -0.6,0.6 -1.2,1 -1.6,1 -0.9,0 -2.1,-0.5 -3.9,-1.6 -6,-4.1 -12.7,-8.8 -19.9,-14.2 -7.1,-5.6 -13.7,-11.2 -19.9,-16.7l-36.4,43.7c-0.4,0.6 -1.1,1.4 -1.9,2.3 -0.6,0.6 -1.2,1 -1.6,1 -0.9,0 -2.1,-0.5 -3.9,-1.6 -6,-4.1 -12.7,-8.9 -19.9,-14.5 -7.1,-5.8 -13.7,-11.5 -19.9,-17 -2.1,-1.7 -3.2,-3 -3.2,-3.9 0,-0.4 0.2,-0.9 0.6,-1.3 0.4,-0.6 0.9,-1.2 1.3,-1.6z" />
+    </symbol>
   </svg>
-  </div>
-  <div class="arabic">إِذَاعَة الْقُرْآن</div>
-  <h1>Quran Radio</h1>
-  <p>Listen to the Holy Quran online. Something beautiful is on the way.</p>
-  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.kady.muhammad.quran_radio" target="_blank" rel="noopener">
-    <img src="assets/google-play-badge.png" alt="Get it on Google Play" />
-  </a>
-  <footer><a href="/privacy-policy.html">Privacy Policy</a></footer>
+
+  <!-- ===================== Nav ===================== -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="/">
+        <span class="ico"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span>
+        <span class="name">Quran Radio</span>
+      </a>
+      <a class="nav__cta" href="https://play.google.com/store/apps/details?id=com.kady.muhammad.quran_radio" target="_blank" rel="noopener">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="arabic">إِذَاعَة الْقُرْآن</p>
+        <h1>The Holy Quran, always with you.</h1>
+        <p class="lede">Live recitation radio and your favorite reciters — anytime, anywhere, and completely ad-free.</p>
+        <div class="cta-row">
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.kady.muhammad.quran_radio" target="_blank" rel="noopener">
+            <img src="assets/google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="frame frame--video" role="img" aria-label="App preview video placeholder">
+          <div class="play-glyph" aria-hidden="true"></div>
+          <span class="frame__label">App preview</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Phone marquee ===================== -->
+    <section class="marquee reveal" aria-label="App screenshots">
+      <div class="marquee__track">
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Radios</span></div>
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Reciters</span></div>
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Player</span></div>
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Favorites</span></div>
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Library</span></div>
+        <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Search</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== Feature rows ===================== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="feature reveal">
+          <div class="feature__text">
+            <p class="eyebrow">Live radio</p>
+            <h2>Tune in, day or night.</h2>
+            <p>Dozens of live Quran radio stations, always on. Press play and let the recitation carry your day.</p>
+          </div>
+          <div class="feature__media">
+            <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Screenshot</span></div>
+          </div>
+        </div>
+
+        <div class="feature reverse reveal">
+          <div class="feature__text">
+            <p class="eyebrow">Reciters &amp; styles</p>
+            <h2>Find the voice that moves you.</h2>
+            <p>Explore reciters across every rewaya — Hafs, Warsh and more — each with its own recitation tradition.</p>
+          </div>
+          <div class="feature__media">
+            <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Screenshot</span></div>
+          </div>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature__text">
+            <p class="eyebrow">Verse highlighting</p>
+            <h2>Follow every verse.</h2>
+            <p>Each ayah highlights in time with the recitation — and you can tap any verse to jump straight to it.</p>
+          </div>
+          <div class="feature__media">
+            <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Screenshot</span></div>
+          </div>
+        </div>
+
+        <div class="feature reverse reveal">
+          <div class="feature__text">
+            <p class="eyebrow">Offline</p>
+            <h2>Take it anywhere.</h2>
+            <p>Download surahs for offline listening — on a flight, on the road, or anywhere without a signal.</p>
+          </div>
+          <div class="feature__media">
+            <div class="frame frame--phone"><span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span><span class="frame__label">Screenshot</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Tablet showcase ===================== -->
+    <section class="section section--alt showcase">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Built for every screen</p>
+          <h2>Beautiful on phone and tablet.</h2>
+          <p>An adaptive layout that makes the most of every display — from a one-hand phone view to a spacious tablet experience.</p>
+        </div>
+        <div class="frame frame--tablet reveal" role="img" aria-label="Tablet screenshot placeholder">
+          <span class="frame__wm"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span>
+          <span class="frame__label">Tablet screenshot</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Feature grid ===================== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="grid-head reveal">
+          <p class="eyebrow">More to love</p>
+          <h2>Everything you need to listen.</h2>
+        </div>
+        <div class="grid">
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><path d="M4 6h11M4 12h11M4 18h7"/><circle cx="18.5" cy="16.5" r="2.5"/><path d="M21 16.5V8l-3 1"/></svg></div>
+            <h3>Playlists</h3><p>Build and reorder your own collections of surahs.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg></div>
+            <h3>Record broadcasts</h3><p>Capture live radio and replay it whenever you like.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div>
+            <h3>Sleep timer</h3><p>Drift off to recitation; playback stops on its own.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+            <h3>Powerful search</h3><p>Find any reciter, surah or rewaya in seconds.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 5c-2.5 4.6-9.5 9-9.5 9z"/></svg></div>
+            <h3>Favorites</h3><p>Keep the radios, reciters and surahs you love a tap away.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ti"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z"/></svg></div>
+            <h3>Expressive themes</h3><p>Light, dark, pitch-black AMOLED and dynamic color.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Privacy callout ===================== -->
+    <section class="section section--alt privacy">
+      <div class="wrap reveal">
+        <span class="badge-pill">Private by design</span>
+        <h2>No ads. No tracking. No account.</h2>
+        <p>Quran Radio collects no personal data. Your favorites, playlists and recordings stay on your device — never on a server.</p>
+        <a class="text-link" href="/privacy-policy.html">Read our Privacy Policy</a>
+      </div>
+    </section>
+
+    <!-- ===================== Download CTA ===================== -->
+    <section class="section download" id="download">
+      <div class="wrap reveal">
+        <div class="ico-lg"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></div>
+        <h2>Start listening today.</h2>
+        <p>Free on Google Play. The Holy Quran, beautifully, wherever you are.</p>
+        <div class="cta-row">
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.kady.muhammad.quran_radio" target="_blank" rel="noopener">
+            <img src="assets/google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site">
+    <div class="wrap row">
+      <a class="brand" href="/">
+        <span class="ico" style="width:28px;height:28px"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#qaf"/></svg></span>
+        <span class="name" style="font-size:1.05rem">Quran Radio</span>
+      </a>
+      <div class="links">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:kady.muhammad@gmail.com">Contact</a>
+        <span>© 2026 Quran Radio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Apple-style fade-up on scroll, disabled when the user prefers reduced motion.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
