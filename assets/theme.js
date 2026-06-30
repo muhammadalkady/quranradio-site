@@ -36,4 +36,12 @@
       if (get() === 'system') apply('system');
     });
   } catch (e) {}
+
+  // Remember the language choice when the EN<->AR pill is clicked, before navigating.
+  var langLink = document.querySelector('[data-set-lang]');
+  if (langLink) {
+    langLink.addEventListener('click', function () {
+      try { localStorage.setItem('qr-lang', langLink.getAttribute('data-set-lang')); } catch (e) {}
+    });
+  }
 })();
