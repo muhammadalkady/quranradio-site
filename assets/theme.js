@@ -2,6 +2,11 @@
    The no-flash applier runs inline in <head>; this only wires the button. */
 (function () {
   var doc = document.documentElement;
+  // Keep the footer copyright year current (client-side, so it's always this year).
+  try {
+    var y = new Date().getFullYear();
+    document.querySelectorAll('.yr').forEach(function (e) { e.textContent = y; });
+  } catch (e) {}
   var btn = document.getElementById('themeToggle');
   if (!btn) return;
   var order = ['system', 'light', 'dark'];

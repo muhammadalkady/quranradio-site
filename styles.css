@@ -203,7 +203,7 @@ h1, h2 { text-wrap: balance; }
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 32px rgba(127, 224, 60, 0.18);
 }
-.hero__logo svg { width: 74%; height: 74%; overflow: visible; }
+.hero__logo svg { width: 78%; height: 78%; overflow: visible; }
 /* Soft lime glow halo around the disc — ramps in, then pulses forever */
 .hero__logo::after {
   content: ""; position: absolute; inset: -24%; border-radius: 50%; z-index: -1;
@@ -213,7 +213,7 @@ h1, h2 { text-wrap: balance; }
              ql-glow-pulse 1.1s ease-in-out 0.65s infinite alternate;
 }
 .hero__logo .ql-trace {
-  fill: none; stroke: var(--brand); stroke-width: 15;
+  fill: none; stroke: var(--brand); stroke-width: 10;
   stroke-linecap: round; stroke-linejoin: round;
   stroke-dasharray: 1; stroke-dashoffset: 1;
 }
