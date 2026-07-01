@@ -249,7 +249,7 @@ h1, h2 { text-wrap: balance; }
 /* ---------- Frames / placeholders ---------- */
 /* Device frames. The bezel is the element; the "screen" is a ::before inset that a real
    <img class="frame__shot"> can later fill (position:absolute; inset matches the screen). */
-.frame { position: relative; display: flex; align-items: center; justify-content: center; }
+.frame { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .frame::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 0;
   background:
