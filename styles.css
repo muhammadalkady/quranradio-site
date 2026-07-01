@@ -266,7 +266,10 @@ h1, h2 { text-wrap: balance; }
 /* When a real screenshot fills a device, inset it to the screen (inside the bezel).
    Absolutely-positioned <img> ignores left/right stretch, so size it explicitly. */
 .frame--phone .frame__shot { inset: 10px; border-radius: 26px; width: calc(100% - 20px); height: calc(100% - 20px); }
-.frame--tablet .frame__shot { inset: 14px; border-radius: 12px; width: calc(100% - 28px); height: calc(100% - 28px); }
+/* Tablet screenshot drives the frame height: in-flow image, so the bezel wraps
+   it exactly — no object-fit crop and no letterbox padding on any viewport. */
+.frame--tablet:has(.frame__shot) { aspect-ratio: auto; }
+.frame--tablet .frame__shot { position: relative; inset: auto; display: block; width: 100%; height: auto; border-radius: 12px; }
 
 /* Preview card (hero video) */
 .frame--video {
