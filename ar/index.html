@@ -133,12 +133,6 @@
           </a>
         </div>
       </div>
-      <div class="hero-media reveal">
-        <div class="frame frame--video" role="img" aria-label="معاينة فيديو التطبيق">
-          <div class="play-glyph" aria-hidden="true"></div>
-          <span class="frame__label">معاينة التطبيق</span>
-        </div>
-      </div>
     </section>
 
     <!-- ===================== Phone marquee ===================== -->
@@ -307,22 +301,6 @@
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
       els.forEach(function (el) { io.observe(el); });
-    })();
-
-    // Subtle hero parallax (disabled under reduced motion).
-    (function () {
-      if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var media = document.querySelector('.hero-media');
-      if (!media) return;
-      var ticking = false;
-      function update() {
-        var y = window.scrollY || 0;
-        media.style.transform = 'translateY(' + Math.min(y * 0.06, 40) + 'px)';
-        ticking = false;
-      }
-      window.addEventListener('scroll', function () {
-        if (!ticking) { ticking = true; requestAnimationFrame(update); }
-      }, { passive: true });
     })();
   </script>
 </body>
