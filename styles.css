@@ -130,8 +130,8 @@ h1, h2 { text-wrap: balance; }
 .nav__right { display: flex; align-items: center; gap: 0.6rem; }
 .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
 .brand .ico { width: 34px; height: 34px; border-radius: 50%; background: #000; color: var(--brand);
-  display: flex; align-items: center; justify-content: center; flex: none; }
-.brand .ico svg { width: 58%; height: 58%; }
+  display: flex; align-items: center; justify-content: center; flex: none; overflow: hidden; }
+.brand .ico svg { width: 108%; height: 108%; }
 .brand .name { font-family: var(--font-wordmark); font-size: 1.25rem; color: var(--accent-text); line-height: 1; }
 .nav__cta {
   text-decoration: none; font-size: 0.92rem; font-weight: 600;
