@@ -50,35 +50,3 @@
     });
   }
 })();
-
-// Apple-style fade-up on scroll, disabled when the user prefers reduced motion.
-(function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-  els.forEach(function (el) { io.observe(el); });
-})();
-
-// Subtle hero parallax (disabled under reduced motion).
-(function () {
-  if (!window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var media = document.querySelector('.hero-media');
-  if (!media) return;
-  var ticking = false;
-  function update() {
-    var y = window.scrollY || 0;
-    media.style.transform = 'translateY(' + Math.min(y * 0.06, 40) + 'px)';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
-})();
