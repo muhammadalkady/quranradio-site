@@ -263,6 +263,9 @@ h1, h2 { text-wrap: balance; }
   font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); opacity: 0.75;
 }
 .frame__shot { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+/* With a real screenshot, drop the placeholder screen glow: its lighter background
+   otherwise leaks around the image's anti-aliased rounded corners as a thin arc. */
+.frame:has(.frame__shot)::before { background: none; }
 /* When a real screenshot fills a device, inset it to the screen (inside the bezel).
    Absolutely-positioned <img> ignores left/right stretch, so size it explicitly. */
 .frame--phone .frame__shot { inset: 10px; border-radius: 26px; width: calc(100% - 20px); height: calc(100% - 20px); }
