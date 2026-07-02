@@ -282,12 +282,12 @@ h1, h2 { text-wrap: balance; }
   width: 30%; height: 7px; border-radius: 999px; background: rgba(255,255,255,0.14);
 }
 
-/* Tablet: slimmer bezel */
+/* Tablet: bezel with enough padding that the screenshot's status bar isn't jammed against the frame */
 .frame--tablet {
-  aspect-ratio: 8 / 5; width: 100%; border-radius: 24px; background: var(--bezel); padding: 14px;
+  aspect-ratio: 8 / 5; width: 100%; border-radius: 26px; background: var(--bezel); padding: 22px;
   box-shadow: 0 36px 90px -46px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(255,255,255,0.05);
 }
-.frame--tablet::before { inset: 14px; border-radius: 12px; }
+.frame--tablet::before { inset: 22px; border-radius: 12px; }
 
 /* ---------- Phone marquee ---------- */
 .marquee { padding: clamp(2rem, 5vw, 3.5rem) 0; }
