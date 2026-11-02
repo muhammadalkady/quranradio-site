@@ -44,13 +44,6 @@
     });
   } catch (e) {}
 
-  // Remember the language picked from the menu, before navigating.
-  document.querySelectorAll('[data-set-lang]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      try { localStorage.setItem('qr-lang', link.getAttribute('data-set-lang')); } catch (e) {}
-    });
-  });
-
   // Close the language menu on a click outside it or on Escape.
   var menu = document.querySelector('.lang-menu');
   if (menu) {

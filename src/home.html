@@ -4,14 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Before paint: go to the language the visitor chose before, or, on the English home only,
-       to the first browser language the site speaks. -->
+  <!-- Before paint, the language: a page opened from the language menu (?lang=xx) or straight at its
+       address records that language as the visitor's choice. The English home instead sends a visitor
+       to the language they chose before or, the first time, to the first browser language the site
+       speaks. -->
   <script>
     (function () {
       var here = '{{lang}}', langs = {{langsJson}};
       try {
+        var asked = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+        if (asked && langs.indexOf(asked) >= 0) {
+          localStorage.setItem('qr-lang', asked);
+          history.replaceState(null, '', location.pathname + location.hash);
+          return;
+        }
+        if (here !== 'en') { localStorage.setItem('qr-lang', here); return; }
         var pick = localStorage.getItem('qr-lang');
-        if (!pick && here === 'en') {
+        if (!pick) {
           var prefs = navigator.languages || [navigator.language || ''];
           for (var i = 0; i < prefs.length && !pick; i++) {
             var c = (prefs[i] || '').slice(0, 2).toLowerCase();
@@ -19,7 +28,7 @@
             if (langs.indexOf(c) >= 0) pick = c;
           }
         }
-        if (pick && pick !== here && langs.indexOf(pick) >= 0) location.replace(pick === 'en' ? '/' : '/' + pick + '/');
+        if (pick && pick !== 'en' && langs.indexOf(pick) >= 0) location.replace('/' + pick + '/');
       } catch (e) {}
     })();
   </script>
@@ -73,6 +82,7 @@
 
   <link rel="stylesheet" href="/styles.css" />
   <script defer src="/assets/theme.js"></script>
+  <script defer src="/assets/mark.js"></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -113,7 +123,7 @@
     <!-- ===================== Hero ===================== -->
     <section class="hero">
       <div class="wrap">
-        <div class="hero__logo" aria-hidden="true"><img src="/assets/mark.webp" width="320" height="320" alt="" fetchpriority="high" /></div>
+        <div class="hero__logo" aria-hidden="true">{{heroMark}}</div>
         {{heroName}}
         <h1>{{h1}}</h1>
         <p class="lede">{{lede}}</p>
