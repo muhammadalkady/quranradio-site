@@ -65,10 +65,10 @@ def icon(name: str) -> str:
 
 
 def hero_mark() -> str:
-    """The brand master (favicon.svg is the app's design/brand/muslim-haven-mark.svg), inline so its
+    """The brand master (assets/mark.svg is the app's design/brand/muslim-haven-mark.svg), inline so its
     four discs of light can drift (assets/mark.js): ids prefixed so they stay unique in the page, the
     discs named, and the full-frame dither dropped, as it would be re-filtered on every frame."""
-    svg = (ROOT / "favicon.svg").read_text(encoding="utf-8")
+    svg = (ROOT / "assets" / "mark.svg").read_text(encoding="utf-8")
     svg = svg[svg.index("<svg"):]
     svg = re.sub(r'<rect width="512" height="512" filter="url\(#dither\)" />\s*', "", svg)
     svg = re.sub(r'\bid="([\w-]+)"', r'id="mh-\1"', svg)

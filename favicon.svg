@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- Muslim Haven brand mark: the master. Exported from the "A - Frosted glass" design;
-     every launcher, store and splash asset derives from this geometry (scripts/brand). -->
 <svg xmlns="http://www.w3.org/2000/svg" role="img"
     aria-label="Frosted glass girih star with a recessed arch doorway, soft green and gold light glowing through it"
     width="512" height="512" viewBox="0 0 512 512">
+  <!-- The Muslim Haven mark (assets/mark.svg) clipped to a disc for the browser tab. -->
+  <clipPath id="disc"><circle cx="256" cy="256" r="256"/></clipPath>
+  <g clip-path="url(#disc)">
     <defs>
         <path id="starShape"
             d="M271.6 73.6 L309.1 111.1 C311.8 113.8 317.1 116 321 116 L374 116 C386.1 116 396 125.9 396 138 L396 191 C396 194.9 398.2 200.2 400.9 202.9 L438.4 240.4 C447 249 447 263 438.4 271.6 L400.9 309.1 C398.2 311.8 396 317.1 396 321 L396 374 C396 386.1 386.1 396 374 396 L321 396 C317.1 396 311.8 398.2 309.1 400.9 L271.6 438.4 C263 447 249 447 240.4 438.4 L202.9 400.9 C200.2 398.2 194.9 396 191 396 L138 396 C125.9 396 116 386.1 116 374 L116 321 C116 317.1 113.8 311.8 111.1 309.1 L73.6 271.6 C65 263 65 249 73.6 240.4 L111.1 202.9 C113.8 200.2 116 194.9 116 191 L116 138 C116 125.9 125.9 116 138 116 L191 116 C194.9 116 200.2 113.8 202.9 111.1 L240.4 73.6 C249 65 263 65 271.6 73.6 Z" />
@@ -113,4 +114,5 @@
             stroke="url(#lip)" stroke-width="1.5" />
     </g>
     <rect width="512" height="512" filter="url(#dither)" />
+</g>
 </svg>
