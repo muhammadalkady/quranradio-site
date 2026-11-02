@@ -314,7 +314,9 @@ h1, h2 { text-wrap: balance; }
 .frame:has(.frame__shot)::before { background: none; }
 /* When a real screenshot fills a device, inset it to the screen (inside the bezel).
    Absolutely-positioned <img> ignores left/right stretch, so size it explicitly. */
-.frame--phone .frame__shot { inset: 10px; border-radius: 26px; width: calc(100% - 20px); height: calc(100% - 20px); }
+/* The capture sets the phone's height (no crop, so the status bar's clock stays whole), and its
+   corners scale with the width as a real screen's do: 9% across, the same length down. */
+.frame--phone .frame__shot { position: relative; inset: auto; display: block; width: 100%; height: auto; border-radius: 9% / 4.04%; }
 /* Tablet screenshot drives the frame height: in-flow image, so the bezel wraps
    it exactly — no object-fit crop and no letterbox padding on any viewport. */
 .frame--tablet:has(.frame__shot) { aspect-ratio: auto; }
@@ -322,15 +324,10 @@ h1, h2 { text-wrap: balance; }
 
 /* Phone: thick bezel + rounded screen + speaker notch */
 .frame--phone {
-  aspect-ratio: 9 / 19.5; border-radius: 34px; background: var(--bezel); padding: 10px;
+  border-radius: 13% / 6%; background: var(--bezel); padding: 4.2%;
   box-shadow: 0 36px 80px -40px rgba(0,0,0,0.75), inset 0 0 0 1px rgba(255,255,255,0.05);
 }
-.frame--phone::before { inset: 10px; border-radius: 26px; }
-.frame--phone::after {
-  content: ""; position: absolute; z-index: 2; top: 22px; left: 50%; transform: translateX(-50%);
-  width: 30%; height: 7px; border-radius: 999px; background: rgba(255,255,255,0.14);
-}
-
+.frame--phone::before { inset: 4.2%; border-radius: 9% / 4.04%; }
 /* Tablet: slim bezel (the screenshots carry their own status-bar headroom) */
 .frame--tablet {
   aspect-ratio: 8 / 5; width: 100%; border-radius: 24px; background: var(--bezel); padding: 14px;

@@ -113,9 +113,13 @@ def load() -> dict:
     return pages
 
 
-def phone(lang: str, shot: str, alt: str, indent: str) -> str:
-    return (f'{indent}<div class="frame frame--phone"><img class="frame__shot" src="/assets/screens/{lang}/phone-{shot}.webp"'
-            f' width="1080" height="2404" loading="lazy" alt="{esc(alt)}" /></div>')
+def phone(lang: str, shot: str, alt: str, indent: str, shown: str) -> str:
+    """A phone frame around a capture; [shown] is its CSS width there, so the browser picks the copy
+    its screen needs from the half-size and full captures."""
+    base = f"/assets/screens/{lang}/phone-{shot}"
+    return (f'{indent}<div class="frame frame--phone"><img class="frame__shot" src="{base}.webp"'
+            f' srcset="{base}-sm.webp 720w, {base}.webp 1344w" sizes="{shown}"'
+            f' width="1344" height="2992" loading="lazy" alt="{esc(alt)}" /></div>')
 
 
 def common(lang: str, kind: str, d: dict, pages: dict) -> tuple:
@@ -177,7 +181,7 @@ def render_home(lang: str, d: dict, pages: dict) -> str:
             <p>{esc(row["body"])}</p>
           </div>
           <div class="feature__media">
-{phone(lang, row["shot"], row["h2"], "            ")}
+{phone(lang, row["shot"], row["h2"], "            ", "(max-width: 760px) min(280px, 70vw), 280px")}
           </div>
         </div>''')
     tiles = [f'''          <div class="tile reveal">
@@ -210,7 +214,8 @@ def render_home(lang: str, d: dict, pages: dict) -> str:
         "jsonLd": "  " + json.dumps(ld, ensure_ascii=False, indent=2).replace("\n", "\n  ").replace("</", "<\\/"),
         "heroName": hero_name,
         "heroMark": hero_mark(),
-        "marquee": "\n".join(phone(lang, s, captions[s], "        ") for s in PHONE_SHOTS),
+        "marquee": "\n".join(phone(lang, s, captions[s], "        ", "clamp(180px, 42vw, 232px)")
+                             for s in PHONE_SHOTS),
         "rows": "\n\n".join(rows),
         "tiles": "\n".join(tiles),
     })
