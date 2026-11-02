@@ -1,0 +1,119 @@
+{
+  "langName": "Bahasa Melayu",
+  "skip": "Langkau ke kandungan",
+  "download": "Muat turun",
+  "home": "laman utama",
+  "langMenu": "Bahasa",
+  "themeTpl": "Tema: {pref} (ketik untuk menukar)",
+  "themeSystem": "Sistem",
+  "themeLight": "Cerah",
+  "themeDark": "Gelap",
+  "tabletEyebrow": "Untuk setiap skrin",
+  "tabletH2": "Lebih lapang di tablet.",
+  "tabletBody": "Reka letak mudah suai yang memanfaatkan setiap skrin, daripada telefon di satu tangan hingga tablet yang luas.",
+  "tvEyebrow": "Baharu · Android TV",
+  "tvH2": "Al-Quran di skrin besar.",
+  "tvBody": "Muslim Haven kini di Android TV. Penuhi rumah anda dengan bacaan Al-Quran, ikuti ayat dari seberang bilik dan cari mana-mana qari atau stesen dengan alat kawalan jauh anda.",
+  "tvToday": "Hari ini sepintas lalu",
+  "tvRadio": "Radio Al-Quran secara langsung",
+  "tvReciters": "Qari mengikut riwayat",
+  "tvPlaying": "Sedang dimainkan, dengan ayat di sebelah pemain",
+  "gridH2": "Teliti dalam setiap perincian.",
+  "privacyBadge": "Privasi sejak awal",
+  "privacyH2": "Tiada iklan. Tiada penjejakan. Tiada akaun.",
+  "privacyBody": "Lokasi, kegemaran, senarai main dan rakaman anda kekal pada peranti anda, bukan pada pelayan. Aplikasi hanya menghantar laporan ranap dan statistik penggunaan tanpa nama.",
+  "privacyLink": "Baca Dasar Privasi kami",
+  "downloadH2": "Mulakan hari ini.",
+  "downloadBody": "Percuma di Google Play, untuk telefon, tablet dan Android TV.",
+  "privacy": "Dasar Privasi",
+  "contact": "Hubungi",
+  "badgeAlt": "Dapatkannya di Google Play",
+  "shotsAria": "Tangkapan skrin aplikasi",
+  "tabletAlt": "Muslim Haven pada tablet",
+  "lang": "ms",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "ms_MY",
+  "title": "Muslim Haven: Al-Quran & Solat",
+  "metaDescription": "Baca dan dengar Al-Quran, radio Al-Quran langsung, waktu solat, azan, kiblat.",
+  "lede": "Muslim Haven menghimpunkan Al-Quran, bacaannya dan solat harian anda dalam satu aplikasi yang tenang dan indah.",
+  "name": "Muslim Haven",
+  "h1": "Al-Quran, bacaan dan solat",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Hari anda, dari Subuh hingga Isyak",
+      "body": "Solat seterusnya, ayat tempat anda berhenti dan apa yang sedang anda dengar, semuanya dalam satu skrin utama yang tenang."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "BACA AL-QURAN",
+      "h2": "Mushaf penuh, halaman demi halaman",
+      "body": "Sambung bacaan dari tempat anda berhenti, atau mulakan khatam dan pantau kemajuannya."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "DENGAR",
+      "h2": "Radio Al-Quran secara langsung dan 244 qari",
+      "body": "Stesen radio Al-Quran secara langsung dari seluruh dunia. 244 qari dan hampir 300 bacaan: Hafs, Warsy, Qalun dan banyak lagi."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "DENGAR",
+      "h2": "Pemain yang dibina untuk bacaan",
+      "body": "Ikuti ayat ketika bacaan dimainkan."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "SOLAT TEPAT PADA WAKTUNYA",
+      "h2": "Waktu solat di mana jua anda berada",
+      "body": "Waktu solat yang tepat bagi mana-mana bandar, atau mengikut lokasi anda."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "SOLAT TEPAT PADA WAKTUNYA",
+      "h2": "Cari kiblat dalam sekelip mata",
+      "body": "Kompas dan peta kiblat."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "DENGAR",
+      "h2": "Muat turun dan dengar luar talian",
+      "body": "Muat turun surah dan dengar di luar talian."
+    }
+  ],
+  "gridEyebrow": "DIBINA UNTUK ANDA",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Azan & peringatan",
+      "body": "Azan dan peringatan sebelum setiap solat, dengan suara pilihan anda."
+    },
+    {
+      "icon": "widgets",
+      "title": "Widget skrin utama",
+      "body": "Widget skrin utama untuk waktu solat, ayat hari ini, kegemaran dan pemain."
+    },
+    {
+      "icon": "langs",
+      "title": "12 bahasa",
+      "body": "12 bahasa, setiap satu dengan fonnya sendiri, dan sokongan penuh tulisan kanan ke kiri."
+    },
+    {
+      "icon": "lists",
+      "title": "Senarai main & kegemaran",
+      "body": "Pemasa tidur, kelajuan main semula, senarai main dan kegemaran."
+    },
+    {
+      "icon": "hijri",
+      "title": "Kalendar Hijrah",
+      "body": "Tarikh Hijrah, boleh dilaras mengikut cerapan anak bulan tempatan."
+    },
+    {
+      "icon": "design",
+      "title": "Reka bentuk kaca kabur",
+      "body": "Reka bentuk kaca dan kaca kabur yang menyesuaikan tema anda, atau rupa tenang dan pegun apabila gerakan dikurangkan."
+    }
+  ]
+}

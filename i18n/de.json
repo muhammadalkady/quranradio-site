@@ -1,0 +1,119 @@
+{
+  "langName": "Deutsch",
+  "skip": "Zum Inhalt springen",
+  "download": "Herunterladen",
+  "home": "Startseite",
+  "langMenu": "Sprache",
+  "themeTpl": "Design: {pref} (zum Ändern tippen)",
+  "themeSystem": "System",
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "tabletEyebrow": "Für jeden Bildschirm",
+  "tabletH2": "Mehr Raum auf dem Tablet.",
+  "tabletBody": "Ein anpassungsfähiges Layout, das jeden Bildschirm optimal nutzt – vom Smartphone in einer Hand bis zum großzügigen Tablet.",
+  "tvEyebrow": "Neu · Android TV",
+  "tvH2": "Der Koran auf dem großen Bildschirm.",
+  "tvBody": "Muslim Haven gibt es jetzt für Android TV. Erfüllen Sie Ihr Zuhause mit Rezitation, folgen Sie den Versen quer durch den Raum und finden Sie jeden Rezitator und jeden Sender mit Ihrer Fernbedienung.",
+  "tvToday": "Der Tag auf einen Blick",
+  "tvRadio": "Koran-Radio live",
+  "tvReciters": "Rezitatoren nach Riwaya",
+  "tvPlaying": "Jetzt läuft: die Verse neben dem Player",
+  "gridH2": "Durchdacht bis ins Detail.",
+  "privacyBadge": "Privat von Grund auf",
+  "privacyH2": "Keine Werbung. Kein Tracking. Kein Konto.",
+  "privacyBody": "Ihr Standort, Ihre Favoriten, Playlists und Aufnahmen bleiben auf Ihrem Gerät, niemals auf einem Server. Die App sendet nur anonyme Absturzberichte und Nutzungsstatistiken.",
+  "privacyLink": "Unsere Datenschutzerklärung lesen",
+  "downloadH2": "Beginnen Sie heute.",
+  "downloadBody": "Kostenlos bei Google Play, für Smartphones, Tablets und Android TV.",
+  "privacy": "Datenschutz",
+  "contact": "Kontakt",
+  "badgeAlt": "Jetzt bei Google Play",
+  "shotsAria": "Screenshots der App",
+  "tabletAlt": "Muslim Haven auf einem Tablet",
+  "lang": "de",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "de_DE",
+  "title": "Muslim Haven: Koran & Gebet",
+  "metaDescription": "Den Koran lesen und hören, Koran-Radio live, Gebetszeiten, Adhan und die Qibla.",
+  "lede": "Muslim Haven vereint den Koran, seine Rezitationen und Ihre täglichen Gebete in einer ruhigen, schönen App.",
+  "name": "Muslim Haven",
+  "h1": "Koran, Rezitation und Gebet",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Ihr Tag, von Fadschr bis Ischa",
+      "body": "Das nächste Gebet, der Vers, bei dem Sie aufgehört haben, und was Sie gerade gehört haben – vereint auf einem ruhigen Startbildschirm."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "DEN KORAN LESEN",
+      "h2": "Der ganze Mushaf, Seite für Seite",
+      "body": "Lesen Sie dort weiter, wo Sie aufgehört haben, oder beginnen Sie eine Khatma und behalten Sie den Überblick."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "HÖREN",
+      "h2": "Koran-Radio live und 244 Rezitatoren",
+      "body": "Koran-Radiosender aus aller Welt, live. 244 Rezitatoren und fast 300 Rezitationen: Hafs, Warsch, Qalun und mehr."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "HÖREN",
+      "h2": "Ein Player für die Rezitation",
+      "body": "Folgen Sie den Versen, während eine Rezitation läuft."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "PÜNKTLICH BETEN",
+      "h2": "Gebetszeiten, wo immer Sie sind",
+      "body": "Genaue Gebetszeiten für jede Stadt oder nach Ihrem Standort."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "PÜNKTLICH BETEN",
+      "h2": "Die Qibla im Nu finden",
+      "body": "Qibla-Kompass und -Karte."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "HÖREN",
+      "h2": "Herunterladen und offline hören",
+      "body": "Suren herunterladen und offline hören."
+    }
+  ],
+  "gridEyebrow": "FÜR SIE GEMACHT",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Adhan & Erinnerungen",
+      "body": "Adhan und Erinnerungen vor jedem Gebet, mit den Stimmen Ihrer Wahl."
+    },
+    {
+      "icon": "widgets",
+      "title": "Startbildschirm-Widgets",
+      "body": "Startbildschirm-Widgets für Gebetszeiten, den Vers des Tages, Favoriten und den Player."
+    },
+    {
+      "icon": "langs",
+      "title": "12 Sprachen",
+      "body": "12 Sprachen, jede in ihrer eigenen Schrift, mit voller Unterstützung für Rechts-nach-links."
+    },
+    {
+      "icon": "lists",
+      "title": "Playlists & Favoriten",
+      "body": "Schlaf-Timer, Wiedergabegeschwindigkeit, Playlists und Favoriten."
+    },
+    {
+      "icon": "hijri",
+      "title": "Hidschri-Kalender",
+      "body": "Hidschri-Datum, anpassbar an die örtliche Mondsichtung."
+    },
+    {
+      "icon": "design",
+      "title": "Mattglas-Design",
+      "body": "Mattglas- und Glasdesign, das sich Ihrem Design anpasst, oder ein ruhiger, stiller Look bei reduzierter Bewegung."
+    }
+  ]
+}

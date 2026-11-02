@@ -1,0 +1,119 @@
+{
+  "langName": "Azərbaycanca",
+  "skip": "Məzmuna keçin",
+  "download": "Endir",
+  "home": "ana səhifə",
+  "langMenu": "Dil",
+  "themeTpl": "Mövzu: {pref} (dəyişmək üçün toxunun)",
+  "themeSystem": "Sistem",
+  "themeLight": "Açıq",
+  "themeDark": "Tünd",
+  "tabletEyebrow": "Hər ekran üçün",
+  "tabletH2": "Planşetdə daha geniş.",
+  "tabletBody": "Telefondan geniş planşetə qədər hər ekrandan maksimum yararlanan uyğunlaşan dizayn.",
+  "tvEyebrow": "Yeni · Android TV",
+  "tvH2": "Quran böyük ekranda.",
+  "tvBody": "Muslim Haven artıq Android TV-də. Evinizi tilavətlə doldurun, ayələri otağın istənilən yerindən izləyin və pultla istənilən qarini və ya stansiyanı tapın.",
+  "tvToday": "Bu gün bir baxışda",
+  "tvRadio": "Canlı Quran radiosu",
+  "tvReciters": "Rəvayətə görə qarilər",
+  "tvPlaying": "İndi səslənir, ayələr pleyerin yanında",
+  "gridH2": "Hər detalda qayğı.",
+  "privacyBadge": "Məxfilik əsasdır",
+  "privacyH2": "Reklam yox. İzləmə yox. Hesab yox.",
+  "privacyBody": "Məkanınız, seçilmişləriniz, pleylistləriniz və yazılarınız cihazınızda qalır, heç vaxt serverdə yox. Tətbiq yalnız anonim xəta hesabatları və istifadə statistikası göndərir.",
+  "privacyLink": "Məxfilik siyasətimizi oxuyun",
+  "downloadH2": "Bu gün başlayın.",
+  "downloadBody": "Google Play-də pulsuz; telefon, planşet və Android TV üçün.",
+  "privacy": "Məxfilik siyasəti",
+  "contact": "Əlaqə",
+  "badgeAlt": "Google Play-dən əldə edin",
+  "shotsAria": "Tətbiqin ekran görüntüləri",
+  "tabletAlt": "Planşetdə Muslim Haven",
+  "lang": "az",
+  "dir": "ltr",
+  "script": "serif",
+  "ogLocale": "az_AZ",
+  "title": "Muslim Haven: Quran və namaz",
+  "metaDescription": "Quranı oxuyun və dinləyin, canlı Quran radiosu, namaz vaxtları, azan və qiblə.",
+  "lede": "Muslim Haven Quranı, onun tilavətlərini və gündəlik namazlarınızı sakit və gözəl bir tətbiqdə birləşdirir.",
+  "name": "Muslim Haven",
+  "h1": "Quran, tilavət və namaz",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Gününüz Sübhdən İşaya qədər",
+      "body": "Növbəti namaz, dayandığınız ayə və dinlədiyiniz tilavət — hamısı sakit bir ana ekranda."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "QURANI OXUYUN",
+      "h2": "Bütün mushəf, səhifə-səhifə",
+      "body": "Qaldığınız yerdən oxumağa davam edin və ya xətmə başlayıb onu izləyin."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "DİNLƏYİN",
+      "h2": "Canlı Quran radiosu və 244 qari",
+      "body": "Dünyanın hər yerindən canlı Quran radio stansiyaları. 244 qari və təxminən 300 tilavət: Həfs, Vərş, Qalun və digərləri."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "DİNLƏYİN",
+      "h2": "Tilavət üçün yaradılmış pleyer",
+      "body": "Tilavət səslənərkən ayələri izləyin."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "VAXTINDA NAMAZ QILIN",
+      "h2": "Harada olsanız, namaz vaxtları",
+      "body": "İstənilən şəhər üçün və ya məkanınıza görə dəqiq namaz vaxtları."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "VAXTINDA NAMAZ QILIN",
+      "h2": "Qibləni bir anda tapın",
+      "body": "Qiblə kompası və xəritəsi."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "DİNLƏYİN",
+      "h2": "Endirin və oflayn dinləyin",
+      "body": "Surələri endirin və oflayn dinləyin."
+    }
+  ],
+  "gridEyebrow": "SİZİN ÜÇÜN",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Azan və xatırlatmalar",
+      "body": "Seçdiyiniz səslərlə azan və hər namazdan əvvəl xatırlatmalar."
+    },
+    {
+      "icon": "widgets",
+      "title": "Ana ekran vidcetləri",
+      "body": "Namaz vaxtları, günün ayəsi, seçilmişlər və pleyer üçün ana ekran vidcetləri."
+    },
+    {
+      "icon": "langs",
+      "title": "12 dil",
+      "body": "Hər birinin öz şrifti olan 12 dil və sağdan sola yazının tam dəstəyi."
+    },
+    {
+      "icon": "lists",
+      "title": "Pleylistlər və seçilmişlər",
+      "body": "Yuxu taymeri, oxutma sürəti, pleylistlər və seçilmişlər."
+    },
+    {
+      "icon": "hijri",
+      "title": "Hicri təqvim",
+      "body": "Yerli hilal müşahidəsinə görə tənzimlənən hicri tarix."
+    },
+    {
+      "icon": "design",
+      "title": "Buzlu şüşə dizayn",
+      "body": "Mövzunuza uyğunlaşan buzlu və şüşə dizayn, hərəkəti azaltdıqda isə sakit görünüş."
+    }
+  ]
+}

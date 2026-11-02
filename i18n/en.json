@@ -1,0 +1,119 @@
+{
+  "langName": "English",
+  "skip": "Skip to content",
+  "download": "Download",
+  "home": "home",
+  "langMenu": "Language",
+  "themeTpl": "Theme: {pref} (tap to change)",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "tabletEyebrow": "Built for every screen",
+  "tabletH2": "Room to breathe on a tablet.",
+  "tabletBody": "An adaptive layout that makes the most of every display, from one hand on a phone to a spacious tablet.",
+  "tvEyebrow": "New · Android TV",
+  "tvH2": "The Quran on the big screen.",
+  "tvBody": "Muslim Haven now comes to Android TV. Fill your home with recitation, follow the verses from across the room and find any reciter or station with your remote.",
+  "tvToday": "Today at a glance",
+  "tvRadio": "Live Quran radio",
+  "tvReciters": "Reciters by rewaya",
+  "tvPlaying": "Now playing, with the verses beside the player",
+  "gridH2": "Thoughtful in every detail.",
+  "privacyBadge": "Private by design",
+  "privacyH2": "No ads. No tracking. No account.",
+  "privacyBody": "Your location, favorites, playlists and recordings stay on your device, never on a server. The app only sends anonymous crash reports and usage statistics.",
+  "privacyLink": "Read our Privacy Policy",
+  "downloadH2": "Begin today.",
+  "downloadBody": "Free on Google Play, for phones, tablets and Android TV.",
+  "privacy": "Privacy Policy",
+  "contact": "Contact",
+  "badgeAlt": "Get it on Google Play",
+  "shotsAria": "App screenshots",
+  "tabletAlt": "Muslim Haven on a tablet",
+  "lang": "en",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "en_US",
+  "title": "Muslim Haven: Quran & Prayer",
+  "metaDescription": "Read and hear the Quran, live Quran radio, prayer times, adhan and the Qibla.",
+  "lede": "Muslim Haven brings the Quran, its recitations and your daily prayers together in one calm, beautiful app.",
+  "name": "Muslim Haven",
+  "h1": "Quran, recitation and prayer",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Your day, from Fajr to Isha",
+      "body": "The next prayer, the verse you stopped at and what you were listening to, together on one calm home screen."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "READ THE QURAN",
+      "h2": "The whole mushaf, page by page",
+      "body": "Continue reading where you stopped, or start a khatma and keep track of it."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "LISTEN",
+      "h2": "Live Quran radio and 244 reciters",
+      "body": "Live Quran radio stations from around the world. 244 reciters and nearly 300 recitations: Hafs, Warsh, Qalun and more."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "LISTEN",
+      "h2": "A player made for recitation",
+      "body": "Follow the verses as a recitation plays."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "PRAY ON TIME",
+      "h2": "Prayer times wherever you are",
+      "body": "Accurate prayer times for any city, or from your location."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "PRAY ON TIME",
+      "h2": "Find the Qibla in a moment",
+      "body": "Qibla compass and map."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "LISTEN",
+      "h2": "Download and listen offline",
+      "body": "Download surahs and listen offline."
+    }
+  ],
+  "gridEyebrow": "MADE FOR YOU",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Adhan & reminders",
+      "body": "Adhan and reminders before each prayer, with the voices you choose."
+    },
+    {
+      "icon": "widgets",
+      "title": "Home screen widgets",
+      "body": "Home screen widgets for prayer times, the verse of the day, favorites and the player."
+    },
+    {
+      "icon": "langs",
+      "title": "12 languages",
+      "body": "12 languages, each with its own typeface, and full right-to-left support."
+    },
+    {
+      "icon": "lists",
+      "title": "Playlists & favorites",
+      "body": "Sleep timer, playback speed, playlists and favorites."
+    },
+    {
+      "icon": "hijri",
+      "title": "Hijri calendar",
+      "body": "Hijri date, adjustable for your local moon sighting."
+    },
+    {
+      "icon": "design",
+      "title": "Frosted glass design",
+      "body": "Frosted and glass design that adapts to your theme, or a calm, still look when you reduce motion."
+    }
+  ]
+}

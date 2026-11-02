@@ -1,0 +1,119 @@
+{
+  "langName": "Bahasa Indonesia",
+  "skip": "Langsung ke konten",
+  "download": "Unduh",
+  "home": "beranda",
+  "langMenu": "Bahasa",
+  "themeTpl": "Tema: {pref} (ketuk untuk mengubah)",
+  "themeSystem": "Sistem",
+  "themeLight": "Terang",
+  "themeDark": "Gelap",
+  "tabletEyebrow": "Untuk setiap layar",
+  "tabletH2": "Lebih lapang di tablet.",
+  "tabletBody": "Tata letak adaptif yang memaksimalkan setiap layar, dari ponsel di satu tangan hingga tablet yang luas.",
+  "tvEyebrow": "Baru · Android TV",
+  "tvH2": "Al-Qur'an di layar besar.",
+  "tvBody": "Muslim Haven kini hadir di Android TV. Penuhi rumah Anda dengan tilawah, ikuti ayat-ayat dari seberang ruangan, dan temukan qari atau stasiun mana pun dengan remote Anda.",
+  "tvToday": "Hari ini sekilas",
+  "tvRadio": "Radio Al-Qur'an langsung",
+  "tvReciters": "Qari menurut riwayat",
+  "tvPlaying": "Sedang diputar, dengan ayat di samping pemutar",
+  "gridH2": "Teliti di setiap detail.",
+  "privacyBadge": "Privat sejak awal",
+  "privacyH2": "Tanpa iklan. Tanpa pelacakan. Tanpa akun.",
+  "privacyBody": "Lokasi, favorit, daftar putar, dan rekaman Anda tetap di perangkat Anda, tidak pernah di server. Aplikasi hanya mengirim laporan error dan statistik penggunaan anonim.",
+  "privacyLink": "Baca Kebijakan Privasi kami",
+  "downloadH2": "Mulai hari ini.",
+  "downloadBody": "Gratis di Google Play, untuk ponsel, tablet, dan Android TV.",
+  "privacy": "Kebijakan Privasi",
+  "contact": "Kontak",
+  "badgeAlt": "Temukan di Google Play",
+  "shotsAria": "Tangkapan layar aplikasi",
+  "tabletAlt": "Muslim Haven di tablet",
+  "lang": "id",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "id_ID",
+  "title": "Muslim Haven: Quran & Salat",
+  "metaDescription": "Baca dan dengar Al-Qur'an, radio Al-Qur'an langsung, waktu salat, adzan, kiblat.",
+  "lede": "Muslim Haven menyatukan Al-Qur'an, tilawahnya, dan salat harian Anda dalam satu aplikasi yang tenang dan indah.",
+  "name": "Muslim Haven",
+  "h1": "Al-Qur'an, tilawah, dan salat",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Hari Anda, dari Subuh hingga Isya",
+      "body": "Salat berikutnya, ayat tempat Anda berhenti, dan apa yang sedang Anda dengarkan, semuanya dalam satu layar utama yang tenang."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "BACA AL-QUR'AN",
+      "h2": "Mushaf lengkap, halaman demi halaman",
+      "body": "Lanjutkan membaca dari tempat Anda berhenti, atau mulai khatam dan pantau kemajuannya."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "DENGARKAN",
+      "h2": "Radio Al-Qur'an langsung dan 244 qari",
+      "body": "Stasiun radio Al-Qur'an langsung dari seluruh dunia. 244 qari dan hampir 300 tilawah: Hafs, Warsy, Qalun, dan lainnya."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "DENGARKAN",
+      "h2": "Pemutar yang dibuat untuk tilawah",
+      "body": "Ikuti ayat-ayat saat tilawah diputar."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "SALAT TEPAT WAKTU",
+      "h2": "Waktu salat di mana pun Anda berada",
+      "body": "Waktu salat yang akurat untuk kota mana pun, atau dari lokasi Anda."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "SALAT TEPAT WAKTU",
+      "h2": "Temukan kiblat dalam sekejap",
+      "body": "Kompas dan peta kiblat."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "DENGARKAN",
+      "h2": "Unduh dan dengarkan offline",
+      "body": "Unduh surah dan dengarkan secara offline."
+    }
+  ],
+  "gridEyebrow": "DIBUAT UNTUK ANDA",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Adzan & pengingat",
+      "body": "Adzan dan pengingat sebelum setiap salat, dengan suara pilihan Anda."
+    },
+    {
+      "icon": "widgets",
+      "title": "Widget layar utama",
+      "body": "Widget layar utama untuk waktu salat, ayat hari ini, favorit, dan pemutar."
+    },
+    {
+      "icon": "langs",
+      "title": "12 bahasa",
+      "body": "12 bahasa, masing-masing dengan hurufnya sendiri, dan dukungan penuh tulisan kanan ke kiri."
+    },
+    {
+      "icon": "lists",
+      "title": "Daftar putar & favorit",
+      "body": "Pengatur waktu tidur, kecepatan putar, daftar putar, dan favorit."
+    },
+    {
+      "icon": "hijri",
+      "title": "Kalender Hijriah",
+      "body": "Tanggal Hijriah, dapat disesuaikan dengan rukyat hilal setempat."
+    },
+    {
+      "icon": "design",
+      "title": "Desain kaca buram",
+      "body": "Desain kaca dan buram yang menyesuaikan tema Anda, atau tampilan tenang tanpa gerak saat gerakan dikurangi."
+    }
+  ]
+}

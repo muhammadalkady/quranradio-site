@@ -1,0 +1,119 @@
+{
+  "langName": "Italiano",
+  "skip": "Vai al contenuto",
+  "download": "Scarica",
+  "home": "home",
+  "langMenu": "Lingua",
+  "themeTpl": "Tema: {pref} (tocca per cambiare)",
+  "themeSystem": "Sistema",
+  "themeLight": "Chiaro",
+  "themeDark": "Scuro",
+  "tabletEyebrow": "Per ogni schermo",
+  "tabletH2": "Più respiro sul tablet.",
+  "tabletBody": "Un layout adattivo che sfrutta al meglio ogni schermo, dallo smartphone in una mano al tablet più ampio.",
+  "tvEyebrow": "Novità · Android TV",
+  "tvH2": "Il Corano sul grande schermo.",
+  "tvBody": "Muslim Haven arriva su Android TV. Riempi la tua casa di recitazione, segui i versetti da ogni angolo della stanza e trova qualsiasi recitatore o stazione con il telecomando.",
+  "tvToday": "La giornata a colpo d'occhio",
+  "tvRadio": "Radio coranica in diretta",
+  "tvReciters": "Recitatori per riwaya",
+  "tvPlaying": "In riproduzione, con i versetti accanto al lettore",
+  "gridH2": "Curata in ogni dettaglio.",
+  "privacyBadge": "Privacy by design",
+  "privacyH2": "Niente pubblicità. Niente tracciamento. Nessun account.",
+  "privacyBody": "La tua posizione, i preferiti, le playlist e le registrazioni restano sul tuo dispositivo, mai su un server. L'app invia solo segnalazioni di arresti anomali e statistiche di utilizzo anonime.",
+  "privacyLink": "Leggi la nostra informativa sulla privacy",
+  "downloadH2": "Inizia oggi.",
+  "downloadBody": "Gratis su Google Play, per smartphone, tablet e Android TV.",
+  "privacy": "Privacy",
+  "contact": "Contatti",
+  "badgeAlt": "Disponibile su Google Play",
+  "shotsAria": "Schermate dell'app",
+  "tabletAlt": "Muslim Haven su tablet",
+  "lang": "it",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "it_IT",
+  "title": "Muslim Haven: Corano e salat",
+  "metaDescription": "Leggi e ascolta il Corano, radio coranica, orari di preghiera, adhan e qibla.",
+  "lede": "Muslim Haven riunisce il Corano, le sue recitazioni e le tue preghiere quotidiane in un'unica app calma ed elegante.",
+  "name": "Muslim Haven",
+  "h1": "Corano, recitazione e preghiera",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "La tua giornata, dal Fajr all'Isha",
+      "body": "La prossima preghiera, il versetto a cui ti sei fermato e ciò che stavi ascoltando, riuniti in un'unica schermata Home serena."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "LEGGERE IL CORANO",
+      "h2": "L'intero mushaf, pagina per pagina",
+      "body": "Riprendi la lettura da dove l'hai lasciata, oppure inizia una khatma e seguine i progressi."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "ASCOLTARE",
+      "h2": "Radio coranica in diretta e 244 recitatori",
+      "body": "Stazioni radio coraniche in diretta da tutto il mondo. 244 recitatori e quasi 300 recitazioni: Hafs, Warsh, Qalun e altre."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "ASCOLTARE",
+      "h2": "Un lettore pensato per la recitazione",
+      "body": "Segui i versetti mentre scorre una recitazione."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "PREGARE IN ORARIO",
+      "h2": "Orari di preghiera ovunque tu sia",
+      "body": "Orari di preghiera precisi per qualsiasi città o in base alla tua posizione."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "PREGARE IN ORARIO",
+      "h2": "Trova la qibla in un istante",
+      "body": "Bussola e mappa della qibla."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "ASCOLTARE",
+      "h2": "Scarica e ascolta offline",
+      "body": "Scarica le sure e ascoltale offline."
+    }
+  ],
+  "gridEyebrow": "PENSATA PER TE",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Adhan e promemoria",
+      "body": "Adhan e promemoria prima di ogni preghiera, con le voci che preferisci."
+    },
+    {
+      "icon": "widgets",
+      "title": "Widget per la Home",
+      "body": "Widget per la schermata Home con orari di preghiera, versetto del giorno, preferiti e lettore."
+    },
+    {
+      "icon": "langs",
+      "title": "12 lingue",
+      "body": "12 lingue, ognuna con il proprio carattere, e pieno supporto alla scrittura da destra a sinistra."
+    },
+    {
+      "icon": "lists",
+      "title": "Playlist e preferiti",
+      "body": "Timer di spegnimento, velocità di riproduzione, playlist e preferiti."
+    },
+    {
+      "icon": "hijri",
+      "title": "Calendario dell'Egira",
+      "body": "Data dell'Egira, regolabile secondo l'avvistamento locale della luna."
+    },
+    {
+      "icon": "design",
+      "title": "Design in vetro smerigliato",
+      "body": "Design in vetro e vetro smerigliato che si adatta al tuo tema, oppure un aspetto calmo e statico quando riduci il movimento."
+    }
+  ]
+}

@@ -5,8 +5,18 @@
     <loc>https://quranradio.app/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,8 +24,208 @@
     <loc>https://quranradio.app/ar/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/ur/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/id/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/ms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/az/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://quranradio.app/bn/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quranradio.app/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://quranradio.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://quranradio.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://quranradio.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://quranradio.app/ms/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://quranradio.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://quranradio.app/az/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://quranradio.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://quranradio.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://quranradio.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://quranradio.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://quranradio.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quranradio.app/"/>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
