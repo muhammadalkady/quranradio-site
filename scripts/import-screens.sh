@@ -5,7 +5,8 @@
 #
 # Reads the unframed captures that `scripts/store/listing-assets.sh` leaves in
 # build/store/raw/<device>/<lang>/ and the feature graphics under app/src/main/play/listings/, and
-# writes web-sized WebP/JPEG copies to assets/screens/<lang>/ and assets/og/<lang>.jpg. Needs
+# writes WebP/JPEG copies, sharp on 2x screens (the TV shots at their full 1920px, at a quality
+# that keeps text crisp), to assets/screens/<lang>/ and assets/og/<lang>.jpg. Needs
 # ImageMagick. Run scripts/build.py afterwards.
 set -euo pipefail
 
@@ -22,14 +23,14 @@ while IFS=$'\t' read -r lang play _; do
   rm -rf "$out" && mkdir -p "$out" "$site/assets/og"
   # Shot files are NN-name.png; the site drops the order prefix.
   for f in "$raw/phone/$lang"/*.png; do
-    b=$(basename "$f" .png); magick "$f" -resize 720x -strip -quality 82 "$out/phone-${b#??-}.webp"
+    b=$(basename "$f" .png); magick "$f" -resize 1080x -strip -quality 90 "$out/phone-${b#??-}.webp"
   done
   for f in "$raw/tv/$lang"/*.png; do
     b=$(basename "$f" .png); b=${b#??-}
     case $b in search | settings) continue ;; esac # Not shown on the site.
-    magick "$f" -resize 1600x -strip -quality 82 "$out/tv-$b.webp"
+    magick "$f" -strip -quality 95 -define webp:sns-strength=0 -define webp:filter-strength=0 "$out/tv-$b.webp"
   done
-  magick "$raw/tablet10/$lang/01-home.png" -resize 1600x -strip -quality 82 "$out/tablet-home.webp"
+  magick "$raw/tablet10/$lang/01-home.png" -resize 2048x -strip -quality 90 "$out/tablet-home.webp"
   magick "$listings/$play/graphics/feature-graphic/feature-graphic.png" -strip -quality 88 "$site/assets/og/$lang.jpg"
   echo "import-screens: $lang"
 done <"$app/scripts/store/locales.tsv"

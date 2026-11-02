@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Builds the site's home page in every language the app speaks.
+"""Builds the site's home page and privacy policy in every language the app speaks.
 
     python3 scripts/build.py
 
-Renders src/home.html once per i18n/<lang>.json: English to /index.html and every other language
-to /<lang>/index.html. Rewrites sitemap.xml with each page and its alternates. With fontTools
+Renders src/home.html once per i18n/<lang>.json, and src/privacy.html around each privacy/<lang>.html:
+English to /index.html and /privacy-policy.html, every other language under /<lang>/. Rewrites sitemap.xml with each page and its alternates. With fontTools
 (`pip install fonttools brotli`) it also cuts each font in fonts/src/ down to the characters the
 site's pages use, as fonts/<name>.woff2; without it, the fonts already in fonts/ are kept.
 """
@@ -22,9 +22,6 @@ PLAY_URL = "https://play.google.com/store/apps/details?id=com.kady.muhammad.qura
 
 # Menu and sitemap order: English (the default), then the rest grouped by script.
 LANGS = ["en", "ar", "ur", "id", "ms", "tr", "az", "fr", "de", "it", "ru", "bn"]
-
-# Localized Google Play badges; any other language uses the English one with a localized alt.
-BADGES = {"en": "/assets/google-play-badge.png", "ar": "/assets/google-play-badge-ar.png"}
 
 # The fonts each script's page preloads (what its headings paint in first).
 PRELOAD = {
@@ -91,8 +88,19 @@ def esc(value: str) -> str:
     return html.escape(value, quote=True)
 
 
-def path_of(lang: str) -> str:
-    return "/" if lang == "en" else f"/{lang}/"
+# The pages built in every language: the home page and the privacy policy. English sits at the
+# site root; every other language in its own folder.
+KINDS = {"home": "index.html", "privacy": "privacy-policy.html"}
+
+
+def path_of(lang: str, kind: str = "home") -> str:
+    """The page's address: the home page is its folder, other pages their file."""
+    folder = "/" if lang == "en" else f"/{lang}/"
+    return folder if kind == "home" else folder + KINDS[kind]
+
+
+def out_file(lang: str, kind: str) -> pathlib.Path:
+    return ROOT / ("" if lang == "en" else lang) / KINDS[kind]
 
 
 def load() -> dict:
@@ -107,11 +115,56 @@ def load() -> dict:
 
 def phone(lang: str, shot: str, alt: str, indent: str) -> str:
     return (f'{indent}<div class="frame frame--phone"><img class="frame__shot" src="/assets/screens/{lang}/phone-{shot}.webp"'
-            f' width="720" height="1603" loading="lazy" alt="{esc(alt)}" /></div>')
+            f' width="1080" height="2404" loading="lazy" alt="{esc(alt)}" /></div>')
 
 
-def render(lang: str, d: dict, pages: dict) -> str:
-    url = BASE + path_of(lang)
+def common(lang: str, kind: str, d: dict, pages: dict) -> tuple:
+    """The values every page fills: its address and alternates, fonts, the header and footer."""
+    menu = []
+    for other in LANGS:
+        o = pages[other]
+        current = ' aria-current="page"' if other == lang else ""
+        menu.append(f'              <li><a href="{path_of(other, kind)}?lang={other}" hreflang="{other}" lang="{other}"'
+                    f' dir="{o["dir"]}"{current}>{esc(o["langName"])}</a></li>')
+    hreflang = [f'  <link rel="alternate" hreflang="{o}" href="{BASE}{path_of(o, kind)}" />' for o in LANGS]
+    hreflang.append(f'  <link rel="alternate" hreflang="x-default" href="{BASE}{path_of("en", kind)}" />')
+    preload = [f'  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/{f}.woff2" />'
+               for f in PRELOAD[d["script"]]]
+    raw = {
+        "hreflang": "\n".join(hreflang),
+        "preload": "\n".join(preload),
+        "langsJson": json.dumps(LANGS),
+        "langMenuItems": "\n".join(menu),
+    }
+    values = {k: v for k, v in d.items() if isinstance(v, str)}
+    values.update(
+        url=BASE + path_of(lang, kind), path=path_of(lang), playUrl=PLAY_URL,
+        privacyUrl=path_of(lang, "privacy"),
+        themeAria=d["themeTpl"].replace("{pref}", d["themeSystem"]),
+    )
+    return raw, values
+
+
+def fill(template: str, lang: str, raw: dict, values: dict) -> str:
+    """Includes the src/partials/ named by {{> name}}, then fills each {{key}}: raw HTML, or text escaped."""
+    template = re.sub(r"\{\{> ([\w-]+)\}\}",
+                      lambda m: (ROOT / "src" / "partials" / f"{m.group(1)}.html").read_text(encoding="utf-8").rstrip("\n"),
+                      template)
+
+    def value(match: re.Match) -> str:
+        key = match.group(1)
+        if key in raw:
+            return raw[key]
+        if key in values:
+            return esc(values[key])
+        sys.exit(f"build: {lang}: no value for {{{{{key}}}}}")
+
+    return re.sub(r"\{\{(\w+)\}\}", value, template)
+
+
+def render_home(lang: str, d: dict, pages: dict) -> str:
+    raw, values = common(lang, "home", d, pages)
+    url = values["url"]
     captions = {row["shot"]: row["h2"] for row in d["rows"]}
     rows = []
     for i, row in enumerate(d["rows"]):
@@ -131,17 +184,6 @@ def render(lang: str, d: dict, pages: dict) -> str:
             <div class="ti">{icon(t["icon"])}</div>
             <h3>{esc(t["title"])}</h3><p>{esc(t["body"])}</p>
           </div>''' for t in d["tiles"]]
-    menu = []
-    for other in LANGS:
-        o = pages[other]
-        current = ' aria-current="page"' if other == lang else ""
-        menu.append(f'              <li><a href="{path_of(other)}?lang={other}" hreflang="{other}" lang="{other}" dir="{o["dir"]}"'
-                     f'{current}>{esc(o["langName"])}</a></li>')
-    hreflang = [f'  <link rel="alternate" hreflang="{o}" href="{BASE}{path_of(o)}" />' for o in LANGS]
-    hreflang.append(f'  <link rel="alternate" hreflang="x-default" href="{BASE}/" />')
-    og_alt = [f'  <meta property="og:locale:alternate" content="{pages[o]["ogLocale"]}" />' for o in LANGS if o != lang]
-    preload = [f'  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/{f}.woff2" />'
-               for f in PRELOAD[d["script"]]]
     if lang == "ar":
         hero_name = '<p class="arabic" lang="en">Muslim Haven</p>'
     else:
@@ -162,52 +204,48 @@ def render(lang: str, d: dict, pages: dict) -> str:
         "author": {"@type": "Person", "name": "Muhammad Alkady"},
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     }
-    raw = {
-        "hreflang": "\n".join(hreflang),
+    og_alt = [f'  <meta property="og:locale:alternate" content="{pages[o]["ogLocale"]}" />' for o in LANGS if o != lang]
+    raw.update({
         "ogAlternates": "\n".join(og_alt),
-        "preload": "\n".join(preload),
         "jsonLd": "  " + json.dumps(ld, ensure_ascii=False, indent=2).replace("\n", "\n  ").replace("</", "<\\/"),
-        "langsJson": json.dumps(LANGS),
-        "langMenuItems": "\n".join(menu),
         "heroName": hero_name,
         "heroMark": hero_mark(),
         "marquee": "\n".join(phone(lang, s, captions[s], "        ") for s in PHONE_SHOTS),
         "rows": "\n\n".join(rows),
         "tiles": "\n".join(tiles),
-    }
-    values = {k: v for k, v in d.items() if isinstance(v, str)}
-    values.update(
-        url=url, path=path_of(lang), playUrl=PLAY_URL, badge=BADGES.get(lang, BADGES["en"]),
-        privacyUrl="/privacy-policy.html#ar" if lang == "ar" else "/privacy-policy.html",
-        themeAria=d["themeTpl"].replace("{pref}", d["themeSystem"]),
-    )
-    template = (ROOT / "src" / "home.html").read_text(encoding="utf-8")
-
-    def fill(match: re.Match) -> str:
-        key = match.group(1)
-        if key in raw:
-            return raw[key]
-        if key in values:
-            return esc(values[key])
-        sys.exit(f"build: {lang}: no value for {{{{{key}}}}}")
-
-    return re.sub(r"\{\{(\w+)\}\}", fill, template)
+    })
+    return fill((ROOT / "src" / "home.html").read_text(encoding="utf-8"), lang, raw, values)
 
 
-def sitemap(today: str) -> str:
-    alternates = "\n".join(f'    <xhtml:link rel="alternate" hreflang="{o}" href="{BASE}{path_of(o)}"/>' for o in LANGS)
-    alternates += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}/"/>'
-    urls = [f"""  <url>
-    <loc>{BASE}{path_of(lang)}</loc>
+def render_privacy(lang: str, d: dict, pages: dict) -> str:
+    """The privacy policy: privacy/<lang>.html set in the site's page, its lede as the description."""
+    raw, values = common(lang, "privacy", d, pages)
+    body = (ROOT / "privacy" / f"{lang}.html").read_text(encoding="utf-8")
+    body = re.sub(r"^<!--.*?-->\n", "", body, flags=re.S).strip("\n")
+    lede = re.search(r'<p class="lede">(.*?)</p>', body, re.S)
+    description = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", lede.group(1)))).strip()
+    raw["policy"] = "\n".join(("      " + line) if line else "" for line in body.split("\n"))
+    values.update(pageTitle=f'{d["privacy"]} — {d["name"]}', pageDescription=description)
+    return fill((ROOT / "src" / "privacy.html").read_text(encoding="utf-8"), lang, raw, values)
+
+
+RENDER = {"home": render_home, "privacy": render_privacy}
+
+
+def sitemap(today: str, kinds: list) -> str:
+    urls = []
+    for kind in kinds:
+        alternates = "\n".join(f'    <xhtml:link rel="alternate" hreflang="{o}" href="{BASE}{path_of(o, kind)}"/>'
+                               for o in LANGS)
+        alternates += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{path_of("en", kind)}"/>'
+        frequency, priority = ("monthly", "1.0") if kind == "home" else ("yearly", "0.5")
+        urls += [f"""  <url>
+    <loc>{BASE}{path_of(lang, kind)}</loc>
 {alternates}
     <lastmod>{today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <changefreq>{frequency}</changefreq>
+    <priority>{priority}</priority>
   </url>""" for lang in LANGS]
-    policy = re.search(r"<url>\s*<loc>[^<]*privacy-policy[^<]*</loc>.*?</url>",
-                       (ROOT / "sitemap.xml").read_text(encoding="utf-8"), re.S)
-    if policy:
-        urls.append("  " + policy.group(0))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
             '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n")
 
@@ -259,17 +297,24 @@ def stamp_file(path: pathlib.Path) -> None:
 
 def main() -> None:
     pages = load()
+    kinds = ["home"]
+    missing = [lang for lang in LANGS if not (ROOT / "privacy" / f"{lang}.html").exists()]
+    if missing:
+        print(f"build: privacy policy skipped, no privacy/<lang>.html for {missing}")
+    else:
+        kinds.append("privacy")
     outputs, texts = [], []
-    for lang, d in pages.items():
-        page = render(lang, d, pages)
-        out = ROOT / ("index.html" if lang == "en" else f"{lang}/index.html")
-        out.parent.mkdir(exist_ok=True)
-        out.write_text(page, encoding="utf-8")
-        outputs.append(out)
-        texts.append(page)
-        print(f"build: {out.relative_to(ROOT)}")
-    (ROOT / "sitemap.xml").write_text(sitemap(datetime.date.today().isoformat()), encoding="utf-8")
-    hand_made = [ROOT / "privacy-policy.html", ROOT / "404.html"]
+    for kind in kinds:
+        for lang, d in pages.items():
+            page = RENDER[kind](lang, d, pages)
+            out = out_file(lang, kind)
+            out.parent.mkdir(exist_ok=True)
+            out.write_text(page, encoding="utf-8")
+            outputs.append(out)
+            texts.append(page)
+            print(f"build: {out.relative_to(ROOT)}")
+    (ROOT / "sitemap.xml").write_text(sitemap(datetime.date.today().isoformat(), kinds), encoding="utf-8")
+    hand_made = [ROOT / "404.html"]
     texts += [p.read_text(encoding="utf-8") for p in hand_made]
     subset_fonts([html.unescape(t) for t in texts])
     # The stylesheet first (its font links change its own hash), then every page that links it.
