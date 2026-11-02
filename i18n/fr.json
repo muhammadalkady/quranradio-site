@@ -1,0 +1,119 @@
+{
+  "langName": "Français",
+  "skip": "Aller au contenu",
+  "download": "Télécharger",
+  "home": "accueil",
+  "langMenu": "Langue",
+  "themeTpl": "Thème : {pref} (touchez pour changer)",
+  "themeSystem": "Système",
+  "themeLight": "Clair",
+  "themeDark": "Sombre",
+  "tabletEyebrow": "Pour chaque écran",
+  "tabletH2": "Plus d'espace sur tablette.",
+  "tabletBody": "Une mise en page adaptative qui tire le meilleur de chaque écran, du téléphone tenu d'une main à la tablette spacieuse.",
+  "tvEyebrow": "Nouveau · Android TV",
+  "tvH2": "Le Coran sur grand écran.",
+  "tvBody": "Muslim Haven arrive sur Android TV. Emplissez votre foyer de récitation, suivez les versets depuis l'autre bout de la pièce et trouvez n'importe quel récitant ou station avec votre télécommande.",
+  "tvToday": "Aujourd'hui en un coup d'œil",
+  "tvRadio": "Radio coranique en direct",
+  "tvReciters": "Récitants par riwaya",
+  "tvPlaying": "Lecture en cours, les versets à côté du lecteur",
+  "gridH2": "Soigné dans chaque détail.",
+  "privacyBadge": "Privé par conception",
+  "privacyH2": "Pas de pub. Pas de pistage. Pas de compte.",
+  "privacyBody": "Votre position, vos favoris, vos playlists et vos enregistrements restent sur votre appareil, jamais sur un serveur. L'application n'envoie que des rapports de plantage et des statistiques d'utilisation anonymes.",
+  "privacyLink": "Lire notre politique de confidentialité",
+  "downloadH2": "Commencez aujourd'hui.",
+  "downloadBody": "Gratuit sur Google Play, pour téléphones, tablettes et Android TV.",
+  "privacy": "Confidentialité",
+  "contact": "Contact",
+  "badgeAlt": "Disponible sur Google Play",
+  "shotsAria": "Captures d'écran de l'application",
+  "tabletAlt": "Muslim Haven sur tablette",
+  "lang": "fr",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "fr_FR",
+  "title": "Muslim Haven : Coran et prière",
+  "metaDescription": "Lisez et écoutez le Coran, radio coranique, heures de prière, adhan et qibla.",
+  "lede": "Muslim Haven réunit le Coran, ses récitations et vos prières quotidiennes dans une application calme et élégante.",
+  "name": "Muslim Haven",
+  "h1": "Coran, récitation et prière",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Votre journée, du Fajr à l'Icha",
+      "body": "La prochaine prière, le verset où vous vous êtes arrêté et ce que vous écoutiez, réunis sur un écran d'accueil apaisant."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "LIRE LE CORAN",
+      "h2": "Le mushaf entier, page par page",
+      "body": "Reprenez la lecture là où vous l'avez laissée, ou commencez une khatma et suivez votre progression."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "ÉCOUTER",
+      "h2": "Radio coranique en direct et 244 récitants",
+      "body": "Des radios coraniques du monde entier, en direct. 244 récitants et près de 300 récitations : Hafs, Warch, Qaloun et plus encore."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "ÉCOUTER",
+      "h2": "Un lecteur pensé pour la récitation",
+      "body": "Suivez les versets pendant la récitation."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "PRIER À L'HEURE",
+      "h2": "Les heures de prière, où que vous soyez",
+      "body": "Des heures de prière précises pour toute ville, ou selon votre position."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "PRIER À L'HEURE",
+      "h2": "Trouvez la qibla en un instant",
+      "body": "Boussole et carte de la qibla."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "ÉCOUTER",
+      "h2": "Téléchargez, écoutez hors ligne",
+      "body": "Téléchargez des sourates et écoutez-les hors ligne."
+    }
+  ],
+  "gridEyebrow": "PENSÉ POUR VOUS",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Adhan et rappels",
+      "body": "L'adhan et des rappels avant chaque prière, avec les voix de votre choix."
+    },
+    {
+      "icon": "widgets",
+      "title": "Widgets d'accueil",
+      "body": "Widgets d'écran d'accueil pour les heures de prière, le verset du jour, les favoris et le lecteur."
+    },
+    {
+      "icon": "langs",
+      "title": "12 langues",
+      "body": "12 langues, chacune avec sa propre typographie, et une prise en charge complète de l'écriture de droite à gauche."
+    },
+    {
+      "icon": "lists",
+      "title": "Playlists et favoris",
+      "body": "Minuterie de sommeil, vitesse de lecture, playlists et favoris."
+    },
+    {
+      "icon": "hijri",
+      "title": "Calendrier hégirien",
+      "body": "Date hégirienne, ajustable selon l'observation locale du croissant."
+    },
+    {
+      "icon": "design",
+      "title": "Design en verre givré",
+      "body": "Un design givré et en verre qui s'adapte à votre thème, ou un aspect calme et immobile lorsque vous réduisez les animations."
+    }
+  ]
+}

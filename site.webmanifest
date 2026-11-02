@@ -1,7 +1,7 @@
 {
-  "name": "Quran Radio",
-  "short_name": "Quran Radio",
-  "description": "Live Quran recitation radio and your favorite reciters, anytime. No ads, no tracking.",
+  "name": "Muslim Haven",
+  "short_name": "Muslim Haven",
+  "description": "Read and hear the Quran, live Quran radio, prayer times, adhan and the Qibla. On phone, tablet and Android TV. No ads.",
   "lang": "en",
   "start_url": "/",
   "display": "standalone",

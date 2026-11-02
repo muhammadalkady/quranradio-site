@@ -1,0 +1,119 @@
+{
+  "langName": "Türkçe",
+  "skip": "İçeriğe geç",
+  "download": "İndir",
+  "home": "ana sayfa",
+  "langMenu": "Dil",
+  "themeTpl": "Tema: {pref} (değiştirmek için dokunun)",
+  "themeSystem": "Sistem",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "tabletEyebrow": "Her ekran için",
+  "tabletH2": "Tablette daha geniş bir alan.",
+  "tabletBody": "Telefondan geniş bir tablete kadar her ekrandan en iyi şekilde yararlanan uyarlanabilir bir düzen.",
+  "tvEyebrow": "Yeni · Android TV",
+  "tvH2": "Kur'an büyük ekranda.",
+  "tvBody": "Muslim Haven artık Android TV'de. Evinizi tilavetle doldurun, ayetleri odanın öbür ucundan takip edin ve kumandanızla dilediğiniz kârîyi ya da istasyonu bulun.",
+  "tvToday": "Bugün bir bakışta",
+  "tvRadio": "Canlı Kur'an radyosu",
+  "tvReciters": "Rivayete göre kârîler",
+  "tvPlaying": "Şimdi çalıyor, ayetler oynatıcının yanında",
+  "gridH2": "Her ayrıntıda özen.",
+  "privacyBadge": "Gizlilik esastır",
+  "privacyH2": "Reklam yok. Takip yok. Hesap yok.",
+  "privacyBody": "Konumunuz, favorileriniz, çalma listeleriniz ve kayıtlarınız cihazınızda kalır, asla bir sunucuda değil. Uygulama yalnızca anonim hata raporları ve kullanım istatistikleri gönderir.",
+  "privacyLink": "Gizlilik Politikamızı okuyun",
+  "downloadH2": "Bugün başlayın.",
+  "downloadBody": "Google Play'de ücretsiz; telefon, tablet ve Android TV için.",
+  "privacy": "Gizlilik Politikası",
+  "contact": "İletişim",
+  "badgeAlt": "Google Play'den alın",
+  "shotsAria": "Uygulama ekran görüntüleri",
+  "tabletAlt": "Tablette Muslim Haven",
+  "lang": "tr",
+  "dir": "ltr",
+  "script": "latin",
+  "ogLocale": "tr_TR",
+  "title": "Muslim Haven: Kur'an ve Namaz",
+  "metaDescription": "Kur'an okuyun ve dinleyin, canlı Kur'an radyosu, namaz vakitleri, ezan ve kıble.",
+  "lede": "Muslim Haven, Kur'an'ı, tilavetlerini ve günlük namazlarınızı sakin ve güzel tek bir uygulamada bir araya getirir.",
+  "name": "Muslim Haven",
+  "h1": "Kur'an, tilavet ve namaz",
+  "rows": [
+    {
+      "shot": "home",
+      "eyebrow": "",
+      "h2": "Gününüz, Sabah'tan Yatsı'ya",
+      "body": "Sıradaki namaz, kaldığınız ayet ve dinlediğiniz tilavet, hepsi sakin tek bir ana ekranda."
+    },
+    {
+      "shot": "mushaf",
+      "eyebrow": "KUR'AN OKUYUN",
+      "h2": "Mushafın tamamı, sayfa sayfa",
+      "body": "Kaldığınız yerden okumaya devam edin ya da bir hatim başlatıp takip edin."
+    },
+    {
+      "shot": "listen",
+      "eyebrow": "DİNLEYİN",
+      "h2": "Canlı Kur'an radyosu ve 244 kârî",
+      "body": "Dünyanın dört bir yanından canlı Kur'an radyo istasyonları. 244 kârî ve yaklaşık 300 tilavet: Hafs, Verş, Kâlûn ve daha fazlası."
+    },
+    {
+      "shot": "player",
+      "eyebrow": "DİNLEYİN",
+      "h2": "Tilavet için tasarlanmış bir oynatıcı",
+      "body": "Tilavet sürerken ayetleri takip edin."
+    },
+    {
+      "shot": "prayer",
+      "eyebrow": "NAMAZI VAKTİNDE KILIN",
+      "h2": "Nerede olursanız olun namaz vakitleri",
+      "body": "Her şehir için ya da konumunuza göre doğru namaz vakitleri."
+    },
+    {
+      "shot": "qibla",
+      "eyebrow": "NAMAZI VAKTİNDE KILIN",
+      "h2": "Kıbleyi bir anda bulun",
+      "body": "Kıble pusulası ve haritası."
+    },
+    {
+      "shot": "library",
+      "eyebrow": "DİNLEYİN",
+      "h2": "İndirin, çevrimdışı dinleyin",
+      "body": "Sureleri indirin ve çevrimdışı dinleyin."
+    }
+  ],
+  "gridEyebrow": "SİZİN İÇİN TASARLANDI",
+  "tiles": [
+    {
+      "icon": "adhan",
+      "title": "Ezan ve hatırlatmalar",
+      "body": "Seçtiğiniz seslerle ezan ve her namazdan önce hatırlatmalar."
+    },
+    {
+      "icon": "widgets",
+      "title": "Ana ekran widget'ları",
+      "body": "Namaz vakitleri, günün ayeti, favoriler ve oynatıcı için ana ekran widget'ları."
+    },
+    {
+      "icon": "langs",
+      "title": "12 dil",
+      "body": "Her biri kendi yazı tipiyle 12 dil ve sağdan sola yazım için tam destek."
+    },
+    {
+      "icon": "lists",
+      "title": "Çalma listeleri ve favoriler",
+      "body": "Uyku zamanlayıcısı, oynatma hızı, çalma listeleri ve favoriler."
+    },
+    {
+      "icon": "hijri",
+      "title": "Hicri takvim",
+      "body": "Yerel hilal gözlemine göre ayarlanabilen Hicri tarih."
+    },
+    {
+      "icon": "design",
+      "title": "Buzlu cam tasarım",
+      "body": "Temanıza uyum sağlayan buzlu ve cam tasarım ya da hareketi azalttığınızda sakin, durağan bir görünüm."
+    }
+  ]
+}

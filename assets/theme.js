@@ -22,7 +22,9 @@
     if (pref === 'light' || pref === 'dark') doc.dataset.theme = pref;
     else delete doc.dataset.theme;
     btn.dataset.pref = pref;
-    btn.setAttribute('aria-label', 'Theme: ' + pref + ' (tap to change)');
+    // The page carries its own wording: data-tpl with {pref}, and a name per preference.
+    var tpl = btn.getAttribute('data-tpl') || 'Theme: {pref} (tap to change)';
+    btn.setAttribute('aria-label', tpl.replace('{pref}', btn.getAttribute('data-' + pref) || pref));
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', isDark(pref) ? '#0E1512' : '#EAF3EC');
   }
@@ -42,11 +44,21 @@
     });
   } catch (e) {}
 
-  // Remember the language choice when the EN<->AR pill is clicked, before navigating.
-  var langLink = document.querySelector('[data-set-lang]');
-  if (langLink) {
-    langLink.addEventListener('click', function () {
-      try { localStorage.setItem('qr-lang', langLink.getAttribute('data-set-lang')); } catch (e) {}
+  // Remember the language picked from the menu, before navigating.
+  document.querySelectorAll('[data-set-lang]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      try { localStorage.setItem('qr-lang', link.getAttribute('data-set-lang')); } catch (e) {}
+    });
+  });
+
+  // Close the language menu on a click outside it or on Escape.
+  var menu = document.querySelector('.lang-menu');
+  if (menu) {
+    document.addEventListener('click', function (e) {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
     });
   }
 })();
