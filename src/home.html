@@ -105,9 +105,11 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
             <span class="cur">{{langName}}</span>
           </summary>
-          <ul>
+          <div class="lang-menu__panel">
+            <ul>
 {{langMenuItems}}
-          </ul>
+            </ul>
+          </div>
         </details>
         <button class="theme-toggle" id="themeToggle" type="button" data-pref="system" data-tpl="{{themeTpl}}" data-system="{{themeSystem}}" data-light="{{themeLight}}" data-dark="{{themeDark}}" aria-label="{{themeAria}}">
           <svg class="i-system" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>

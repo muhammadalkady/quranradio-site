@@ -135,7 +135,7 @@ def render(lang: str, d: dict, pages: dict) -> str:
     for other in LANGS:
         o = pages[other]
         current = ' aria-current="page"' if other == lang else ""
-        menu.append(f'            <li><a href="{path_of(other)}?lang={other}" hreflang="{other}" lang="{other}" dir="{o["dir"]}"'
+        menu.append(f'              <li><a href="{path_of(other)}?lang={other}" hreflang="{other}" lang="{other}" dir="{o["dir"]}"'
                      f'{current}>{esc(o["langName"])}</a></li>')
     hreflang = [f'  <link rel="alternate" hreflang="{o}" href="{BASE}{path_of(o)}" />' for o in LANGS]
     hreflang.append(f'  <link rel="alternate" hreflang="x-default" href="{BASE}/" />')
